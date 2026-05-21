@@ -7,7 +7,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-black text-pink-400">
+<body class="min-h-screen bg-linear-to-t from-pink-100 to-white-50 text-pink-400">
     <h1 class="text-6xl font-bold">Login page!</h1>
 </body>
 </html>
