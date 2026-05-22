@@ -40,8 +40,38 @@
         inset 1px 1px 0 #d47aa8;
 }
 
-.form-element {
+.form-container {
     @apply
     bg-pink-300
-    text-white
+    p-6 
+    border-2 
+    border-pink-400;
+
+    box-shadow:
+    inset 1px 1px 0 #ffd9eb,
+    inset -1px -1px 0 #c76d9a,
+    2px 2px 0 #b95a89;
+}
+
+.form-element {
+    @apply text-white 
+    flex
+    gap-1
+    mb-4
+    justify-between
+    items-center
+}
+
+.form-element input {
+    @apply bg-pink-50
+    border-2
+    border-pink-300
+    px-3
+    py-2
+    text-pink-900;
+
+    box-shadow:
+        inset 1px 1px 0 #fff,
+        inset -1px -1px 0 #d47aa8,
+        1px 1px 0 #c26b98;
 }
