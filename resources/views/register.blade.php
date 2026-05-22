@@ -9,26 +9,46 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen bg-linear-to-t from-pink-100 to-white-50 text-pink-400">
-    <h1 class="text-6xl font-bold">Registration page!</h1>
+<body class="min-h-screen bg-linear-to-t from-pink-200 to-white-50 text-pink-400">
+    <h1 class="text-6xl font-bold text-center">Registration page!</h1>
 
     <main class="flex items-center justify-center">
 
         <div class="form-container">
-            <form action="/register" method="post" class="flex flex-col gap-4">
+            <form action="/register" method="post" class="flex flex-col">
                 @csrf
+                @error('email')
+                <p class="text-red-700 text-sm">
+                    {{ $message }}
+                </p>
+                @enderror
                 <div class="form-element">
                     <label for="email">E-mail:</label>
-                    <input type="email" name="email" id="email" placeholder="E-mail">
+                    <input type="email" name="email" id="email" placeholder="E-mail" value="{{ old('email') }}">
                 </div>
+                @error('name')
+                <p class="text-red-700 text-sm">
+                    {{ $message }}
+                </p>
+                @enderror
                 <div class="form-element">
                     <label for="username">Username:</label>
-                    <input type="text" name="name" id="username" placeholder="Username">
+                    <input type="text" name="name" id="username" placeholder="Username" value="{{ old('name') }}">
                 </div>
+                @error('password')
+                <p class="text-red-700 text-sm">
+                    {{ $message }}
+                </p>
+                @enderror
                 <div class="form-element">
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" placeholder="Password">
                 </div>
+                @error('password_confirmation')
+                <p class="text-red-700 text-sm">
+                    {{ $message }}
+                </p>
+                @enderror
                 <div class="form-element">
                     <label for="password_confirmation">Repeat password:</label>
                     <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Repeat password">
@@ -41,7 +61,7 @@
             </form>
         </div>
     </main>
-    <div>
+    <div class="flex justify-center">
         <span class="text-pink-900">Already have an account?</span>
         <a href="/login" class="underline">Log in here! (❁´◡`❁)</a>
     </div>

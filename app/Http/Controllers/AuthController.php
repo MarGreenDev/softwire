@@ -11,17 +11,28 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $validated = $request->validate([
-            'email' => 'required|email|unique:users',
-            'name' => 'required|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
+        $validated = $request->validate(
 
-        User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-        ]);
+    [
+        'email' => 'required|email|unique:users',
+        'name' => 'required|unique:users',
+        'password' => 'required|min:6|confirmed',
+    ],
+
+    [
+        'email.required' => '(╥﹏╥) Please enter your e-mail!',
+        'email.email' => 'That does not look like a valid e-mail...',
+        'email.unique' => 'This e-mail is already being used!',
+
+        'name.required' => 'Please choose a username!',
+        'name.unique' => 'That username is already taken ＞﹏＜',
+
+        'password.required' => 'Please enter a password!',
+        'password.min' => 'Password must be at least 6 characters!',
+        'password.confirmed' => 'Passwords do not match!',
+    ]
+
+);
 
         return redirect('/login');
     }
@@ -31,6 +42,11 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'name' => 'required',
             'password' => 'required',
+        ],
+        
+        [
+            'name.required' => 'Please fill in ur username',
+            'password.required' => 'Please fill in ur password',
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -41,7 +57,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'name' => 'Invalid credentials'
+            'login' => 'Invalid username or password （＞人＜；）'
         ]);
     }
 }

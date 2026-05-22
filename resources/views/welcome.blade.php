@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen bg-linear-to-t from-pink-100 to-white-50 text-pink-400 ">
+<body class="min-h-screen bg-linear-to-t from-pink-200 to-white-50 text-pink-400 ">
     <h1 class="text-6xl font-bold text-center">This is the homepage :3</h1>
     @guest
     <p>You are not logged in ＞︿＜</p>
