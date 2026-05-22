@@ -41,16 +41,16 @@
 }
 
 .form-container {
-    @apply
+    @apply relative
     bg-pink-300
     p-6 
     border-2 
     border-pink-400;
 
     box-shadow:
-    inset 1px 1px 0 #ffd9eb,
-    inset -1px -1px 0 #c76d9a,
-    2px 2px 0 #b95a89;
+        inset 1px 1px 0 #ffd9eb,
+        inset -1px -1px 0 #c76d9a,
+        2px 2px 0 #b95a89;
 }
 
 .form-element {
@@ -59,7 +59,7 @@
     gap-1
     mb-4
     justify-between
-    items-center
+    items-center;
 }
 
 .form-element input {
@@ -74,4 +74,61 @@
         inset 1px 1px 0 #fff,
         inset -1px -1px 0 #d47aa8,
         1px 1px 0 #c26b98;
+}
+
+.retro-popup {
+    @apply fixed
+    text-center
+
+    w-70
+
+    top-30
+    left-160
+
+    z-50
+
+    bg-pink-100
+    border-2
+    border-pink-400;
+
+    animation: popupAppear 0.15s ease-out;
+}
+
+@keyframes popupAppear {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.retro-popup-header {
+    @apply bg-pink-300
+    text-pink-900
+    font-bold
+    flex
+    justify-between
+    items-center
+    cursor-grab
+
+    px-2
+    py-1
+
+    m-0;
+
+    box-shadow:
+        inset 1px 1px 0 #ffd9eb,
+        inset -1px -1px 0 #c76d9a,
+        2px 2px 0 #b95a89;
+}
+
+.retro-popup-body {
+    @apply p-4;
+
+    box-shadow:
+        inset 1px 1px 0 #fff,
+        inset -1px -1px 0 #d47aa8;
 }

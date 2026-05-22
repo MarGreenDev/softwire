@@ -18,7 +18,7 @@
             <form action="/register" method="post" class="flex flex-col">
                 @csrf
                 @error('email')
-                <p class="text-red-700 text-sm">
+                <p class="text-red-700 text-sm flex justify-end">
                     {{ $message }}
                 </p>
                 @enderror
@@ -27,7 +27,7 @@
                     <input type="email" name="email" id="email" placeholder="E-mail" value="{{ old('email') }}">
                 </div>
                 @error('name')
-                <p class="text-red-700 text-sm">
+                <p class="text-red-700 text-sm flex justify-end">
                     {{ $message }}
                 </p>
                 @enderror
@@ -36,7 +36,7 @@
                     <input type="text" name="name" id="username" placeholder="Username" value="{{ old('name') }}">
                 </div>
                 @error('password')
-                <p class="text-red-700 text-sm">
+                <p class="text-red-700 text-sm flex justify-end">
                     {{ $message }}
                 </p>
                 @enderror
@@ -45,7 +45,7 @@
                     <input type="password" name="password" id="password" placeholder="Password">
                 </div>
                 @error('password_confirmation')
-                <p class="text-red-700 text-sm">
+                <p class="text-red-700 text-sm flex justify-end">
                     {{ $message }}
                 </p>
                 @enderror
