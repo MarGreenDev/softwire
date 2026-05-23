@@ -1,1 +1,1 @@
-import './popup';
+import './popup2';

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoftWire</title>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
 
 <body class="min-h-screen bg-cover text-pink-400"
@@ -21,13 +21,12 @@
                     <a href="/register" class="hover:text-pink-500">Make an account!</a>
                     @endguest
                     @auth
-                    <form action="/logout" method="post">
-                        @csrf
-                        <button type="submit" class="hover:text-pink-500 underline cursor-pointer">
-                            Log out
+                    @csrf
+                    <button" class="hover:text-pink-500 underline cursor-pointer" id="logout-button">
+                        Log out
                         </button>
-                    </form>
-                    @endauth
+
+                        @endauth
                 </div>
             </div>
             <div>
@@ -55,6 +54,7 @@
         </aside>
 
     </main>
+    @include('partials/logout-popup')
 </body>
 
 </html>

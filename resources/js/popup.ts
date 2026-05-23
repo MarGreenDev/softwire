@@ -3,6 +3,9 @@ const header = document.querySelector<HTMLElement>("#retro-popup-header");
 const closeButton = document.querySelector<HTMLElement>("#retro-popup-close");
 const okButton = document.querySelector<HTMLElement>("#retro-popup-ok");
 
+const logoutPopup = document.querySelector<HTMLElement>("retro-logout-popup");
+const logoutButton = document.querySelector('#logout-button');
+
 console.log(popup);
 console.log(header);
 
@@ -40,4 +43,8 @@ closeButton?.addEventListener("click", () => {
 
 okButton?.addEventListener("click", () => {
     popup?.classList.add("hidden");
+});
+
+logoutButton?.addEventListener("click", () => {
+    logoutPopup?.classList.remove('hidden');
 });
