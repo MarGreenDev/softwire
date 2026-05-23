@@ -132,3 +132,30 @@
         inset 1px 1px 0 #fff,
         inset -1px -1px 0 #d47aa8;
 }
+
+.widget-header {
+    @apply bg-pink-300
+    text-pink-900
+    font-bold
+    flex
+    justify-between
+    items-center
+
+    px-2
+    py-1
+
+    m-0;
+
+    box-shadow:
+        inset 1px 1px 0 #ffd9eb,
+        inset -1px -1px 0 #c76d9a,
+        2px 2px 0 #b95a89;
+}
+
+.widget {
+    @apply bg-pink-100;
+
+    box-shadow:
+        inset 1px 1px 0 #fff,
+        inset -1px -1px 0 #d47aa8;
+}

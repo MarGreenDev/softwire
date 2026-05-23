@@ -2,10 +2,19 @@
 
 @section('content')
 
-<div class="bg-pink-100/70 backdrop-blur-sm border-2 border-pink-300 p-6">
+<div class="grid grid-cols-1 md:grid-cols-12 bg-pink-100/30 backdrop-blur-sm p-6 col-span-12">
 
-    <aside>
-        <!-- friendslist? -->
+    <aside class="col-span-1 md:col-span-3">
+        @auth
+        @include('partials.widgets.featured-user')
+        @endauth
+    </aside>
+
+    <section class="col-span-1 md:col-span-6">
+
+    </section>
+
+    <aside class="col-span-1 md:col-span-3">
     </aside>
 
 </div>
