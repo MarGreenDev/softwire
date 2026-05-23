@@ -48,4 +48,14 @@ class AuthController extends Controller
             'name' => 'Incorrect username or password!! (；′⌒`)'
         ]);
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerate();
+
+        return redirect('/');
+    }
 }
