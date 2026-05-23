@@ -1,0 +1,27 @@
+<header class="bg-linear-to-t from-pink-100/70 to-pink-300/70 backdrop-blur-sm p-6 border-2 border-pink-300 rounded-t-lg">
+            <div class="flex justify-between">
+                <h1 class="text-6xl font-bold">SoftWire . ݁₊ ⊹</h1>
+                <div class="flex items-center gap-2 divide-x-2 text-pink-700 underline">
+                    @guest
+                    <a href="/login" class="px-2 hover:text-pink-500">Log in</a>
+                    <a href="/register" class="hover:text-pink-500">Make an account!</a>
+                    @endguest
+                    @auth
+                    @csrf
+                    <button" class="hover:text-pink-500 underline cursor-pointer" id="logout-button">
+                        Log out
+                        </button>
+
+                        @endauth
+                </div>
+            </div>
+            <div>
+                @guest
+                <p>You are not logged in ＞︿＜</p>
+                @endguest
+                @auth
+                <p>Hii, {{ Auth::user()->name }}!!! ₊˚⊹♡</p>
+                @endauth
+            </div>
+
+        </header>
