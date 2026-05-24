@@ -34,3 +34,15 @@ Route::get('/', function () {
     ]);
 
 });
+
+Route::get('/search', function () {
+
+    $search = request('search');
+
+   $users = User::where('name', 'LIKE', "%{$search}%")->get();
+
+    return view('search', [
+        'users' => $users,
+        'search' => $search
+    ]);
+});
