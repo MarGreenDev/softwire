@@ -12,6 +12,11 @@
         "Noto Color Emoji";
 }
 
+::selection {
+    background-color: #ff69b4;
+    color: white;
+}
+
 .btn-primary {
     @apply bg-pink-200
     text-pink-900
@@ -157,5 +162,6 @@
 
     box-shadow:
         inset 1px 1px 0 #fff,
-        inset -1px -1px 0 #d47aa8;
+        inset -1px -1px 0 #d47aa8,
+        1px 1px 0 #b85c8c;
 }

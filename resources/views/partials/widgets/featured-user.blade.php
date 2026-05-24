@@ -7,12 +7,12 @@
 
         <img src="images/margreendevthebest.jpg" alt="placeholder-pfp"
             class="w-20 h-20 border-2 border-pink-300">
-        <p> {{ Auth::user()->name }} </p>
+        <p> {{ $featuredUser->name }} </p>
     </div>
     <div class="p-4">
         <p class="text-pink-700">
             the creator of this website ₊˚⊹♡
         </p>
-        <a href="#">View their profile! -></a>
+        <a href="{{ route('profile.show', $featuredUser) }}">View their profile! -></a>
     </div>
 </div>

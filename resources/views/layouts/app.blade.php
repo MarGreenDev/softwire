@@ -21,7 +21,7 @@
         <!-- nav -->
         @include ('partials.nav')
 
-        <main class="grid grid-cols-1 md:grid-cols-12 w-full">
+        <main class="w-full">
 
             @yield('content')
 

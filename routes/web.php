@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
@@ -14,3 +15,22 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('/logout', [AuthController::class, 'logout']);
+
+Route::get('/profile/{user}', function (User $user) {
+
+    return view('profile.show', [
+        'user' => $user
+    ]);
+})->name('profile.show');
+
+Route::get('/', function () {
+
+    $featuredUser = User::find(1);
+    $newestUser = User::latest()->first();
+
+    return view('welcome', [
+        'featuredUser' => $featuredUser,
+        'newestUser' => $newestUser
+    ]);
+
+});

@@ -1,6 +1,6 @@
 <header class="bg-linear-to-t from-pink-100/70 to-pink-300/70 backdrop-blur-sm p-6 border-2 border-pink-300 rounded-t-lg">
             <div class="flex justify-between">
-                <h1 class="text-6xl font-bold">SoftWire . ݁₊ ⊹</h1>
+                <h1 class="text-6xl font-bold bg-linear-to-t from-pink-600 to-pink-300 bg-clip-text text-transparent">SoftWire . ݁₊ ⊹</h1>
                 <div class="flex items-center gap-2 divide-x-2 text-pink-700 underline">
                     @guest
                     <a href="/login" class="px-2 hover:text-pink-500">Log in</a>
