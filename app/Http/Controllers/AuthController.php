@@ -15,6 +15,14 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'name' => 'required|unique:users',
             'password' => 'required|min:6|confirmed',
+        ], [
+            'email.required' => 'Please enter your email',
+            'name.required' => 'Please choose a username',
+            'password.required' => 'Can\'t really make an account without a password ;3',
+            'email.email' => 'please make sure it\'s an actual email',
+            'email.unique' => 'E-mail already taken :(',
+            'name.unique' => 'Username already taken :(',
+            'password.confirmed' => 'these passwords don\'t match'
         ]);
 
         User::create([
@@ -28,14 +36,16 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'name' => 'required',
-            'password' => 'required',
-        ],
-        [
-            'name.required' => 'Please fill in all fields! (* ￣︿￣)',
-            'password.required' => 'Please fill in all fields! (* ￣︿￣)',
-        ]);
+        $credentials = $request->validate(
+            [
+                'name' => 'required',
+                'password' => 'required',
+            ],
+            [
+                'name.required' => 'Please fill in your username!',
+                'password.required' => 'Please fill in your password!',
+            ]
+        );
 
         if (Auth::attempt($credentials)) {
 

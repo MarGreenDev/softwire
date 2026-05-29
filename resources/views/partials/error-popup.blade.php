@@ -8,9 +8,14 @@
     </div>
 
     <div class="retro-popup-body">
-        <p>
-            {{ $errors->first() }}
-        </p>
+
+        <ul class="space-y-2 divide-y divide-pink-300">
+            @foreach ($errors->all() as $error)
+
+            <li> ✕ {{ $error }}</li>
+
+            @endforeach
+        </ul>
 
         <button id="retro-popup-ok" class="btn-primary">
             ok
