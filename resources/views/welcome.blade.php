@@ -11,11 +11,13 @@
         @include('partials.widgets.featured-user')
 
         @include('partials.widgets.search-user')
+
+        <img src="images/nyancat.gif" alt="nyan cat gif">
     </aside>
 
     <section class="col-span-1 md:col-span-6">
 
-
+    @include('partials.widgets.featured-video')
 
     </section>
 
