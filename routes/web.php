@@ -27,10 +27,12 @@ Route::get('/', function () {
 
     $featuredUser = User::find(1);
     $newestUser = User::latest()->first();
+    $users = User::all();
 
     return view('welcome', [
         'featuredUser' => $featuredUser,
-        'newestUser' => $newestUser
+        'newestUser' => $newestUser,
+        'users' => $users
     ]);
 
 });

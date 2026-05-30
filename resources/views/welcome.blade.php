@@ -22,6 +22,9 @@
     </section>
 
     <aside class="col-span-1 md:col-span-3">
+
+    @include('partials.widgets.friends-online')
+
     </aside>
 
 </div>
