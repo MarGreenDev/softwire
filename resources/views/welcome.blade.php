@@ -2,31 +2,32 @@
 
 @section('content')
 
+<div class="bg-pink-100/30 backdrop-blur-sm col-span-12">
+    @include('partials.announcement-banner')
+    <div class="grid grid-cols-1 md:grid-cols-12 p-6 col-span-12 gap-5">
 
-@include('partials.announcement-banner')
-<div class="grid grid-cols-1 md:grid-cols-12 bg-pink-100/30 backdrop-blur-sm p-6 col-span-12 gap-5">
+        <aside class="col-span-1 md:col-span-3 space-y-3">
 
-    <aside class="col-span-1 md:col-span-3 space-y-3">
+            @include('partials.widgets.featured-user')
 
-        @include('partials.widgets.featured-user')
+            @include('partials.widgets.search-user')
 
-        @include('partials.widgets.search-user')
+            <img src="images/nyancat.gif" alt="nyan cat gif">
+        </aside>
 
-        <img src="images/nyancat.gif" alt="nyan cat gif">
-    </aside>
+        <section class="col-span-1 md:col-span-6">
 
-    <section class="col-span-1 md:col-span-6">
+            @include('partials.widgets.featured-video')
 
-    @include('partials.widgets.featured-video')
+        </section>
 
-    </section>
+        <aside class="col-span-1 md:col-span-3">
 
-    <aside class="col-span-1 md:col-span-3">
+            @include('partials.widgets.friends-online')
 
-    @include('partials.widgets.friends-online')
+        </aside>
 
-    </aside>
-
+    </div>
 </div>
 
 @endsection
