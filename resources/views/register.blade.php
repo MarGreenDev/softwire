@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends ('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+@section ('content')
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
+<div class="bg-pink-100 p-3">
 
-<body class="min-h-screen bg-linear-to-t from-pink-200 to-white-50 text-pink-400">
-    <h1 class="text-6xl font-bold text-center">Registration page!</h1>
-
-    <main class="flex items-center justify-center">
+    <div class="flex items-center justify-center">
 
         <div class="form-container">
             <form action="/register" method="post" class="flex flex-col" novalidate>
@@ -40,13 +32,16 @@
                 <button type="submit" class="btn-primary">Create account ^0^</button>
             </form>
         </div>
-    </main>
+    </div>
     <div class="flex justify-center">
         <span class="text-pink-900">Already have an account?</span>
         <a href="/login" class="underline">Log in here! (❁´◡`❁)</a>
     </div>
 
-    @include('partials.error-popup')
-</body>
+    <img src="{{ asset('images/cute.gif') }}" alt="cute gif"
+    class="mx-auto w-xs">
 
-</html>
+    @include('partials.error-popup')
+</div>
+
+@endsection

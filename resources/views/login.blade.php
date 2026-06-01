@@ -18,17 +18,17 @@
                 </div>
                 <button type="submit" class="btn-primary">Log in (✿◠‿◠)</button>
             </form>
-            @include('partials.error-popup')
         </div>
     </div>
     <div class="flex justify-center">
         <span class="text-pink-900">Don't have an account?</span>
         <a href="/register" class="underline">Make an account here! ヾ(•ω•`)o</a>
     </div>
-
+    
     <img src="{{ asset('images/cute.gif') }}" alt="cute gif"
-    class="mx-auto">
-
+    class="mx-auto w-xs">
+    
+    @include('partials.error-popup')
 </div>
 
 
