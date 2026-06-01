@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends ('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+@section('content')
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body class="min-h-screen bg-linear-to-t from-pink-200 to-white-50 text-pink-400">
-    <h1 class="text-6xl font-bold text-center">Login page!</h1>
-    <main class="flex items-center justify-center">
+<div class="bg-pink-100 backdrop-blur-sm p-3">
+    <div class="flex items-center justify-center">
 
         <div class="form-container">
             <form action="/login" method="post" class="flex flex-col">
@@ -28,13 +20,16 @@
             </form>
             @include('partials.error-popup')
         </div>
-    </main>
+    </div>
     <div class="flex justify-center">
         <span class="text-pink-900">Don't have an account?</span>
         <a href="/register" class="underline">Make an account here! ヾ(•ω•`)o</a>
     </div>
 
+    <img src="{{ asset('images/cute.gif') }}" alt="cute gif"
+    class="mx-auto">
 
-</body>
+</div>
 
-</html>
+
+@endsection
