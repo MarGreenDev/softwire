@@ -39,12 +39,16 @@ Route::get('/', function () {
 
 Route::get('/search', function () {
 
+    $featuredUser = User::find(1);
+    $newestUser = User::latest()->first();
     $search = request('search');
 
    $users = User::where('name', 'LIKE', "%{$search}%")->get();
 
     return view('search', [
         'users' => $users,
-        'search' => $search
+        'search' => $search,
+        'featuredUser' => $featuredUser,
+        'newestUser' => $newestUser
     ]);
 });

@@ -15,7 +15,7 @@
             <div class="widget-header">
                 <h2>Hello</h2>
             </div>
-            <div class="p-5">
+            <div class="p-5 space-y-3">
                 <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture">
                 <div class="flex text-center justify-center text-pink-900 font-bold">
                     <span>◈</span>
@@ -25,6 +25,11 @@
                     <p>pronouns: she/her</p>
                     <p>status: coding :)</p>
                 </div>
+
+                <div class="flex justify-center">
+                    <button class="btn-primary">Add friend</button>
+                </div>
+
             </div>
         </section>
 
@@ -61,53 +66,53 @@
 
             <div class="flex flex-col divide-y">
                 @for ($i = 0; $i < 3; $i++)
-                <div class="flex items-center gap-3 p-3">
+                    <div class="flex items-center gap-3 p-3">
                     <img src="https://placehold.co/70" alt="placeholder image">
 
                     <div>
                         <h3 class="font-bold text-pink-700">Post title</h3>
                         <p>Post description...</p>
                     </div>
-                </div>
-                @endfor
             </div>
-
-        </div>
-    </section>
-
-    <aside class="col-span-1 md:col-span-3">
-
-        <section class="widget">
-            <div class="widget-header">
-                <h2>photo album</h2>
-            </div>
-            <div class="grid grid-cols-3 gap-2 p-2">
-
-                @for ($i = 0; $i < 9; $i++)
-
-                    <img
-                    src="https://placehold.co/50"
-                    alt="placeholder image"
-                    class="w-full aspect-square object-cover">
-
-                    @endfor
-
-            </div>
-
-
-        </section>
-        <div>
-            <img src="{{ asset('images/cute.gif') }}" alt="">
+            @endfor
         </div>
 
-    </aside>
+</div>
+</section>
 
-    <section class="widget col-span-1 md:col-span-12">
+<aside class="col-span-1 md:col-span-3 space-y-4">
+
+    <section class="widget">
         <div class="widget-header">
-            <h2>Guestbook</h2>
+            <h2>photo album</h2>
         </div>
-        <p>No one has posted anything yet...</p>
+        <div class="grid grid-cols-3 gap-2 p-2">
+
+            @for ($i = 0; $i < 9; $i++)
+
+                <img
+                src="https://placehold.co/50"
+                alt="placeholder image"
+                class="w-full aspect-square object-cover">
+
+                @endfor
+
+        </div>
+
+
     </section>
+    <div>
+        <img src="{{ asset('images/cute.gif') }}" alt="">
+    </div>
+
+</aside>
+
+<section class="widget col-span-1 md:col-span-12">
+    <div class="widget-header">
+        <h2>Guestbook</h2>
+    </div>
+    <p>No one has posted anything yet...</p>
+</section>
 
 </div>
 
