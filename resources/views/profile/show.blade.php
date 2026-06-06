@@ -14,6 +14,11 @@
         <section class="widget">
             <div class="widget-header">
                 <h2>Hello</h2>
+                @auth
+                @if (Auth::id() === $user->id)
+                <a href="">[Edit]</a>
+                @endif
+                @endauth
             </div>
             <div class="p-5 space-y-3">
                 <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture">
@@ -51,6 +56,11 @@
         <div class="widget">
             <div class="widget-header">
                 <h2>About me</h2>
+                @auth
+                @if (Auth::id() === $user->id) <!-- this checks whether the person whos viewing the page is the profile owner -->
+                <a href="#">[Edit]</a>
+                @endif
+                @endauth
             </div>
             <div class="min-h-40">
 
