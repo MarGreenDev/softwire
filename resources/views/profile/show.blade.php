@@ -58,14 +58,22 @@
                 <h2>About me</h2>
                 @auth
                 @if (Auth::id() === $user->id) <!-- this checks whether the person whos viewing the page is the profile owner -->
-                <a href="#">[Edit]</a>
+                <div>
+                    <button id="aboutmeBtn" class="cursor-pointer">[Edit]</button>
+                    <button id="aboutmeCancel" class="cursor-pointer hidden">[Cancel]</button>
+
+                </div>
                 @endif
                 @endauth
             </div>
             <div class="min-h-40">
-
-                <p class="text-center">Nothing here yet...</p>
-
+                <form action="" id="aboutMe" class="hidden flex flex-col items-center">
+                    <textarea name="aboutMe" 
+                    placeholder="Tell us about yourself!" 
+                    class="bg-pink-50 border-2 border-pink-300 p-3 text-sm h-40 w-full resize-none"
+                    >{{ $user->about_me }}</textarea>
+                    <button type="submit" class="btn-primary">Save</button>
+                </form>
             </div>
         </div>
 
