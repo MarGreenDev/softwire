@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\profileController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -52,3 +53,7 @@ Route::get('/search', function () {
         'newestUser' => $newestUser
     ]);
 });
+
+Route::put('/profile.show', [profileController::class, 'updateAboutMe'])
+    ->middleware('auth')
+    ->name('profile.show.update');

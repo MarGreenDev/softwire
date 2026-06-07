@@ -67,13 +67,27 @@
                 @endauth
             </div>
             <div class="min-h-40">
-                <form action="" id="aboutMe" class="hidden flex flex-col items-center">
-                    <textarea name="aboutMe" 
-                    placeholder="Tell us about yourself!" 
-                    class="bg-pink-50 border-2 border-pink-300 p-3 text-sm h-40 w-full resize-none"
-                    >{{ $user->about_me }}</textarea>
+                <form action="{{ route('profile.show.update') }}" id="aboutMe" method="post" class="hidden flex flex-col items-center">
+                    @csrf
+                    @method('PUT')
+                    <textarea name="aboutMe"
+                        placeholder="Tell us about yourself!"
+                        class="bg-pink-50 border-2 border-pink-300 p-3 text-sm h-40 w-full resize-none">{{ $user->about_me }}</textarea>
+
                     <button type="submit" class="btn-primary">Save</button>
                 </form>
+
+                <div id="aboutMeContent">
+                    @empty($user->about_me)
+                    <p class="text-pink-400 italic p-3">
+                        There is nothing here...
+                    </p>
+                    @else
+                    <p class="p-3">
+                        {{ $user->about_me }}
+                    </p>
+                    @endempty
+                </div>
             </div>
         </div>
 
