@@ -23,10 +23,12 @@ class profileController extends Controller
     {
         $request->validate([
             'pronouns' => 'nullable|string|max:15',
+            'status' => 'nullable|string|max:30',
         ]);
 
         auth()->user()->update([
             'pronouns' => $request->pronouns,
+            'status' => $request->status,
         ]);
 
         return back();

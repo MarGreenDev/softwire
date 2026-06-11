@@ -33,29 +33,39 @@
                         @csrf
                         @method('PUT')
                         <div class="form-element">
-                        <label for="pronouns" class="font-semibold text-pink-400">Pronouns:</label>
-                        <input type="text" name="pronouns" id="pronouns" placeholder="pronouns" value="{{ $user->pronouns }}"
-                        class="w-full h-7">
+                            <label for="pronouns" class="font-semibold text-pink-400">Pronouns:</label>
+                            <input type="text" name="pronouns" id="pronouns" placeholder="pronouns" value="{{ $user->pronouns }}"
+                                class="w-full h-7">
+                        </div>
+
+                        <div class="form-element">
+                            <label for="status" class="font-semibold text-pink-400">Status:</label>
+                            <input type="text" name="status" id="status" placeholder="status" value="{{ $user->status }}"
+                                class="w-full h-7">
                         </div>
                         <button type="submit" class="btn-primary">Save</button>
                     </form>
                     <!-- status -->
-                    <div id="profileSummary">
+                    <div id="profileSummary" class="flex flex-col gap-4">
                         <!-- pronouns -->
-                        <span class="font-semibold">Pronouns:</span>
-                        @empty($user->pronouns)
-                        <span>...</span>
-                        @else
-                        <span>{{ $user->pronouns }}</span>
-                        @endempty
+                        <div>
+                            <span class="font-semibold">Pronouns:</span>
+                            @empty($user->pronouns)
+                            <span>...</span>
+                            @else
+                            <span>{{ $user->pronouns }}</span>
+                            @endempty
+                        </div>
 
                         <!-- status message -->
-                        <span class="font-semibold">Status:</span>
-                        @empty($user->status)
-                        <span>...</span>
-                        @else
-                        <span>{{ $user->status }}</span>
-                        @endempty
+                        <div>
+                            <span class="font-semibold">Status:</span>
+                            @empty($user->status)
+                            <span>...</span>
+                            @else
+                            <span>{{ $user->status }}</span>
+                            @endempty
+                        </div>
                     </div>
                 </div>
                 @if (Auth::id() !== $user->id)
