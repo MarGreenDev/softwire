@@ -54,6 +54,10 @@ Route::get('/search', function () {
     ]);
 });
 
-Route::put('/profile.show', [profileController::class, 'updateAboutMe'])
+Route::put('/profile.about-me', [profileController::class, 'updateAboutMe'])
     ->middleware('auth')
     ->name('profile.show.update');
+
+Route::put('/profile.summary', [profileController::class, 'updateSummary'])
+    ->middleware('auth')
+    ->name('profile.summary.update');

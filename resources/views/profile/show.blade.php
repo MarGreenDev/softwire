@@ -16,7 +16,8 @@
                 <h2>Hello</h2>
                 @auth
                 @if (Auth::id() === $user->id)
-                <a href="">[Edit]</a>
+                <button id="summaryBtn" class="cursor-pointer">[Edit]</button>
+                <button id="summaryCancel" class="hidden">[Cancel]</button>
                 @endif
                 @endauth
             </div>
@@ -27,13 +28,41 @@
                     <h3>{{ $user->name }}</h3>
                 </div>
                 <div class="border-5 border-pink-500 border-double p-3">
-                    <p>pronouns: she/her</p>
-                    <p>status: coding :)</p>
-                </div>
+                    <!-- pronouns -->
+                    <form action="{{ route('profile.summary.update') }}" id="profileSummaryEdit" method="post" class="hidden">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-element">
+                        <label for="pronouns" class="font-semibold text-pink-400">Pronouns:</label>
+                        <input type="text" name="pronouns" id="pronouns" placeholder="pronouns" value="{{ $user->pronouns }}"
+                        class="w-full h-7">
+                        </div>
+                        <button type="submit" class="btn-primary">Save</button>
+                    </form>
+                    <!-- status -->
+                    <div id="profileSummary">
+                        <!-- pronouns -->
+                        <span class="font-semibold">Pronouns:</span>
+                        @empty($user->pronouns)
+                        <span>...</span>
+                        @else
+                        <span>{{ $user->pronouns }}</span>
+                        @endempty
 
+                        <!-- status message -->
+                        <span class="font-semibold">Status:</span>
+                        @empty($user->status)
+                        <span>...</span>
+                        @else
+                        <span>{{ $user->status }}</span>
+                        @endempty
+                    </div>
+                </div>
+                @if (Auth::id() !== $user->id)
                 <div class="flex justify-center">
                     <button class="btn-primary">Add friend</button>
                 </div>
+                @endif
 
             </div>
         </section>
@@ -71,7 +100,7 @@
                     @csrf
                     @method('PUT')
                     <textarea name="aboutMe"
-                        placeholder="Tell us about yourself!"
+                        placeholder="Tell us about yourself! Max: 1000 characters"
                         class="bg-pink-50 border-2 border-pink-300 p-3 text-sm h-40 w-full resize-none">{{ $user->about_me }}</textarea>
 
                     <button type="submit" class="btn-primary">Save</button>
@@ -83,9 +112,7 @@
                         There is nothing here...
                     </p>
                     @else
-                    <p class="p-3">
-                        {{ $user->about_me }}
-                    </p>
+                    <p class="whitespace-pre-wrap p-3">{{ $user->about_me }}</p>
                     @endempty
                 </div>
             </div>

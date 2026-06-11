@@ -1,5 +1,6 @@
 import './popup2';
 
+// About me edit logic thing
 const aboutmeBtn = document.querySelector<HTMLElement>("#aboutmeBtn");
 const aboutMe = document.querySelector<HTMLElement>("#aboutMe");
 const aboutmeCancel = document.querySelector<HTMLElement>("#aboutmeCancel");
@@ -17,4 +18,25 @@ aboutmeCancel?.addEventListener('click', () => {
     aboutmeBtn?.classList.remove("hidden");
     aboutmeCancel?.classList.add("hidden");
     aboutMeContent?.classList.remove("hidden");
+});
+
+// The profile datails edit section
+const summaryBtn= document.querySelector<HTMLElement>("#summaryBtn");
+const summaryCancel = document.querySelector<HTMLElement>("#summaryCancel");
+const profileSummaryEdit = document.querySelector<HTMLElement>("#profileSummaryEdit");
+const profileSummary = document.querySelector<HTMLElement>("#profileSummary");
+
+summaryBtn?.addEventListener('click', () => {
+    summaryBtn?.classList.add("hidden");
+    summaryCancel?.classList.remove("hidden");
+    profileSummaryEdit?.classList.remove("hidden");
+    profileSummary?.classList.add("hidden");
+
+});
+
+summaryCancel?.addEventListener('click', () => {
+    summaryBtn?.classList.remove("hidden");
+    summaryCancel?.classList.add("hidden");
+    profileSummaryEdit?.classList.add("hidden");
+    profileSummary?.classList.remove("hidden");
 });

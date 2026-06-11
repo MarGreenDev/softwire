@@ -18,4 +18,17 @@ class profileController extends Controller
 
         return back();
     }
+
+    public function updateSummary(Request $request)
+    {
+        $request->validate([
+            'pronouns' => 'nullable|string|max:15',
+        ]);
+
+        auth()->user()->update([
+            'pronouns' => $request->pronouns,
+        ]);
+
+        return back();
+    }
 }
