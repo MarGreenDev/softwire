@@ -17,7 +17,7 @@
                 @auth
                 @if (Auth::id() === $user->id)
                 <button id="summaryBtn" class="cursor-pointer">[Edit]</button>
-                <button id="summaryCancel" class="hidden">[Cancel]</button>
+                <button id="summaryCancel" class="hidden cursor-pointer">[Cancel]</button>
                 @endif
                 @endauth
             </div>

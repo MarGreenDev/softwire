@@ -20,7 +20,7 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/profile/{user}', function (User $user) {
 
     return view('profile.show', [
-        'user' => $user
+        'user' => $user,
     ]);
 })->name('profile.show');
 
@@ -33,9 +33,8 @@ Route::get('/', function () {
     return view('welcome', [
         'featuredUser' => $featuredUser,
         'newestUser' => $newestUser,
-        'users' => $users
+        'users' => $users,
     ]);
-
 });
 
 Route::get('/search', function () {
@@ -44,13 +43,13 @@ Route::get('/search', function () {
     $newestUser = User::latest()->first();
     $search = request('search');
 
-   $users = User::where('name', 'LIKE', "%{$search}%")->get();
+    $users = User::where('name', 'LIKE', "%{$search}%")->get();
 
     return view('search', [
         'users' => $users,
         'search' => $search,
         'featuredUser' => $featuredUser,
-        'newestUser' => $newestUser
+        'newestUser' => $newestUser,
     ]);
 });
 
