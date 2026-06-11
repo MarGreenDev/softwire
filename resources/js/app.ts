@@ -40,3 +40,21 @@ summaryCancel?.addEventListener('click', () => {
     profileSummaryEdit?.classList.add("hidden");
     profileSummary?.classList.remove("hidden");
 });
+
+//profile picture change
+
+const changePfp = document.querySelector<HTMLElement>("#changePfp");
+const changePfpBtn = document.querySelector<HTMLElement>("#changePfpBtn");
+const cancelChangePfp = document.querySelector<HTMLElement>("#cancelChangePfp");
+
+changePfpBtn?.addEventListener('click', () => {
+    changePfpBtn?.classList.add("hidden");
+    cancelChangePfp?.classList.remove("hidden");
+    changePfp?.classList.remove("hidden");
+});
+
+cancelChangePfp?.addEventListener('click', () => {
+    changePfpBtn?.classList.remove("hidden");
+    cancelChangePfp?.classList.add("hidden");
+    changePfp?.classList.add("hidden");
+})

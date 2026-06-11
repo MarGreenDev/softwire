@@ -24,6 +24,7 @@ class User extends Authenticatable
         'about_me',
         'pronouns',
         'status',
+        'profile_picture',
     ];
 
     /**

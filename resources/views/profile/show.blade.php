@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="grid grid-cols-1 md:grid-cols-12 bg-pink-100/30 backdrop-blur-sm p-3 col-span-12 gap-5">
 
     <div class="col-span-1 md:col-span-12 bg-contain min-h-30"
@@ -21,12 +22,43 @@
                 @endif
                 @endauth
             </div>
+
             <div class="p-5 space-y-3">
-                <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture">
+                <div>
+                    @auth
+                    @if (Auth::id() === $user->id)
+
+                    <button class="font-semibold cursor-pointer" id="changePfpBtn">[Change pfp]</button>
+                    <button class="font-semibold hidden cursor-pointer" id="cancelChangePfp">[Cancel]</button>
+
+                    @endif
+                    @endauth
+
+                    <form action="{{ route('profile.picture.update') }}" method="post"
+                    enctype="multipart/form-data" id="changePfp"
+                    class="hidden">
+                        @csrf
+                        @method('PUT')
+
+                        <input type="file" name="profile_picture" id="profile_picture"
+                        class="`cursor-pointer bg-pink-300 w-full text-white">
+
+                        <button type="submit"
+                        class="btn-primary w-full">Save</button>
+
+                    </form>
+                    @empty($user->profile_picture)
+                    <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture">
+                    @else
+                    <img src="{{ Storage::url($user->profile_picture) }}" alt="profile picture">
+                    @endempty
+                </div>
+                
                 <div class="flex text-center justify-center text-pink-900 font-bold">
                     <span>◈</span>
                     <h3>{{ $user->name }}</h3>
                 </div>
+
                 <div class="border-5 border-pink-500 border-double p-3">
                     <!-- pronouns -->
                     <form action="{{ route('profile.summary.update') }}" id="profileSummaryEdit" method="post" class="hidden">

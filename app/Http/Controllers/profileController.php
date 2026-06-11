@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class profileController extends Controller
 {
@@ -30,6 +31,22 @@ class profileController extends Controller
             'pronouns' => $request->pronouns,
             'status' => $request->status,
         ]);
+
+        return back();
+    }
+
+    public function updatePfp(Request $request)
+    {
+        $request->validate([
+            'profile_picture' => 'nullable|image|max:2048',
+            ]);
+            
+            $pfpPath = $request->file('profile_picture')->store('profile-pictures', 'public');
+
+        auth()->user()->update([
+            'profile_picture' => $pfpPath,
+        ]);
+
 
         return back();
     }

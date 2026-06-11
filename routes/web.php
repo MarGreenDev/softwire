@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\profileController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 Route::view('/', 'welcome');
 
@@ -60,3 +61,7 @@ Route::put('/profile.about-me', [profileController::class, 'updateAboutMe'])
 Route::put('/profile.summary', [profileController::class, 'updateSummary'])
     ->middleware('auth')
     ->name('profile.summary.update');
+
+Route::put('/profile.profile_picture', [profileController::class, 'updatePfp'])
+    ->middleware('auth')
+    ->name('profile.picture.update');
