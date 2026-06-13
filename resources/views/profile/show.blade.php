@@ -100,11 +100,13 @@
                         </div>
                     </div>
                 </div>
+                @auth
                 @if (Auth::id() !== $user->id)
                 <div class="flex justify-center">
                     <button class="btn-primary">Add friend</button>
                 </div>
                 @endif
+                @endauth
 
             </div>
         </section>
