@@ -12,10 +12,12 @@
 
             @include('partials.widgets.search-user')
 
+            @include('partials.widgets.friends-online')
+
             <img src="images/nyancat.gif" alt="nyan cat gif">
         </aside>
 
-        <section class="col-span-1 md:col-span-6">
+        <section class="col-span-1 md:col-span-9">
 
             @include('partials.widgets.featured-video')
 
@@ -23,7 +25,7 @@
 
         <aside class="col-span-1 md:col-span-3">
 
-            @include('partials.widgets.friends-online')
+            
 
         </aside>
 
