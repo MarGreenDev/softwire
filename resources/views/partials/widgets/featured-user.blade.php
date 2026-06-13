@@ -5,7 +5,7 @@
     </div>
     <div class="flex gap-4 items-center p-4">
 
-        <img src="images/margreendevthebest.jpg" alt="placeholder-pfp"
+        <img src="{{ Storage::url($featuredUser->profile_picture) }}" alt="placeholder-pfp"
             class="w-20 h-20 border-2 border-pink-300">
         <p> {{ $featuredUser->name }} </p>
     </div>

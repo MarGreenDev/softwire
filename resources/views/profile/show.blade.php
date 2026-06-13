@@ -41,7 +41,7 @@
                         @method('PUT')
 
                         <input type="file" name="profile_picture" id="profile_picture"
-                        class="`cursor-pointer bg-pink-300 w-full text-white">
+                        class="cursor-pointer bg-pink-300 w-full text-white">
 
                         <button type="submit"
                         class="btn-primary w-full">Save</button>
