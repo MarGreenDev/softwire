@@ -38,7 +38,7 @@ class profileController extends Controller
     public function updatePfp(Request $request)
     {
         $request->validate([
-            'profile_picture' => 'nullable|image|max:2048',
+            'profile_picture' => 'image|max:2048',
             ]);
             
             $pfpPath = $request->file('profile_picture')->store('profile-pictures', 'public');

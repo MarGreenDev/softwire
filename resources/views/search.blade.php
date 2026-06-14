@@ -25,8 +25,13 @@
                 @forelse ($users as $user)
 
                 <div class="p-3">
+                    @empty($user->profile_picture)
                     <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
                         class="w-20 aspect-square">
+                    @else
+                    <img src="{{ Storage::url($user->profile_picture) }}" alt="profile pirture"
+                        class="w-20 aspect-square">
+                    @endempty
 
                     <div class="flex justify-between gap-5">
                         <p>

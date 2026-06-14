@@ -10,7 +10,13 @@
 
             <li class="flex items-center p-2 gap-4">
                 <a href="{{ route('profile.show', $user) }}">
-                    <img src="https://placehold.co/50" alt="">
+                    @empty($user->profile_picture)
+                    <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
+                    class="size-15 aspect-square">
+                    @else
+                    <img src="{{ Storage::url($user->profile_picture) }}" alt="profile picture"
+                    class="size-15 aspect-square">
+                    @endempty
                 </a>
                 <span class="hover:underline">
                     <a href="{{ route('profile.show', $user) }}">
