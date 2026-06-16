@@ -165,3 +165,14 @@
         inset -1px -1px 0 #d47aa8,
         1px 1px 0 #b85c8c;
 }
+
+.text-area-primary {
+    @apply
+    bg-pink-50
+    border-2
+    border-pink-300
+    p-3
+    text-sm
+    w-full
+    resize-none
+}

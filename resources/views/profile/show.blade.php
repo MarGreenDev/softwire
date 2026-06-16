@@ -145,7 +145,7 @@
                     @method('PUT')
                     <textarea name="aboutMe"
                         placeholder="Tell us about yourself! Max: 1000 characters"
-                        class="bg-pink-50 border-2 border-pink-300 p-3 text-sm h-40 w-full resize-none">{{ $user->about_me }}</textarea>
+                        class="text-area-primary h-40">{{ $user->about_me }}</textarea>
 
                     <button type="submit" class="btn-primary">Save</button>
                 </form>
@@ -210,12 +210,7 @@
 
 </aside>
 
-<section class="widget col-span-1 md:col-span-12">
-    <div class="widget-header">
-        <h2>Guestbook</h2>
-    </div>
-    <p>No one has posted anything yet...</p>
-</section>
+@include('partials.widgets.guestbook')
 
 </div>
 
