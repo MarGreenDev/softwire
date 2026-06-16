@@ -4,9 +4,13 @@
         <h2>Featured user ♡</h2>
     </div>
     <div class="flex gap-4 items-center p-4">
-
+ @empty($featuredUser->profile_picture)
+            <img src="{{ asset('images/default-pfp.jpg') }}" alt="placeholder-pfp"
+                class="w-20 h-20 border-2 border-pink-300">
+                @else
         <img src="{{ Storage::url($featuredUser->profile_picture) }}" alt="placeholder-pfp"
             class="w-20 h-20 border-2 border-pink-300">
+            @endempty
         <p> {{ $featuredUser->name }} </p>
     </div>
     <div class="p-4">

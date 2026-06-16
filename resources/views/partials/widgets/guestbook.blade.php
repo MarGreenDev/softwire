@@ -6,8 +6,13 @@
     <form action="">
         @csrf
         <div class="flex p-3 gap-3">
+            @empty(Auth::user()->profile_picture)
+            <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
+            class="w-20 aspect-square">
+            @else
             <img src="{{ Storage::url(Auth::user()->profile_picture) }}" alt="profile picture"
                 class="w-20 aspect-square">
+                @endempty
             <textarea name="message" id="message" placeholder="write a message in the guestbook"
                 class="text-area-primary"></textarea>
         </div>

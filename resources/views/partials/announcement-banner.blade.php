@@ -4,10 +4,11 @@
         𐙚 ‧₊˚ ⋅ WELCOME TO SOFTWIRE!! ⋅˚₊‧ 𐙚
     </span>
 
-
+@if ($newestUser)
     <span class="mx-8">
         our newest member:
         <a href="{{ route('profile.show', $newestUser) }}">{{ $newestUser->name }}</a>
         , say hiii!!!! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
     </span>
+    @endif
 </marquee>

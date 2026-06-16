@@ -8,7 +8,10 @@
 
         <aside class="col-span-1 md:col-span-3 space-y-3">
 
+
+        @if ($featuredUser)
             @include('partials.widgets.featured-user')
+           @endif 
 
             @include('partials.widgets.search-user')
 
