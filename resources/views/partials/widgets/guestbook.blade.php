@@ -14,7 +14,7 @@
                 class="w-20 aspect-square">
                 @endempty
             <textarea name="message" id="message" placeholder="write a message in the guestbook"
-                class="text-area-primary"></textarea>
+                class="text-area-primary">Test</textarea>
         </div>
         <div class="flex justify-center pb-3">
             <button type="submit"
