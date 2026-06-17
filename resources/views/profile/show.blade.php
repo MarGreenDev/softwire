@@ -25,6 +25,7 @@
 
             <div class="p-5 space-y-3">
                 <div>
+                    <!-- PROFILE PICTURE CHANGE -->
                     @auth
                     @if (Auth::id() === $user->id)
 
@@ -41,12 +42,15 @@
                         @method('PUT')
 
                         <input type="file" name="profile_picture" id="profile_picture"
-                        class="file:bg-pink-200 file:p-1 file:cursor-pointer w-full">
+                        class="w-full file:bg-pink-200 pb-2 font-semibold text-pink-900 file:p-1 file:border
+                        file:border-pink-400 file:shadow-[1px_1px_0_0_#ec4899]
+                        file:inset-shadow-[1px_1px_0_0_#ffe4f1]">
 
                         <button type="submit"
                         class="btn-primary w-full">Save</button>
 
                     </form>
+
                     @empty($user->profile_picture)
                     <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture">
                     @else
