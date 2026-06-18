@@ -3,7 +3,7 @@
         <h2>Guestbook</h2>
     </div>
     @auth
-    <form action="">
+    <form action="{{ route('guestbook.store', $user) }}" method="post">
         @csrf
         <div class="flex p-3 gap-3">
             @empty(Auth::user()->profile_picture)
