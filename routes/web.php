@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GuestbookController;
 use App\Http\Controllers\profileController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,8 @@ Route::get('/search', function () {
     ]);
 });
 
+    // Profile updates
+
 Route::put('/profile.about-me', [profileController::class, 'updateAboutMe'])
     ->middleware('auth')
     ->name('profile.show.update');
@@ -65,3 +68,9 @@ Route::put('/profile.summary', [profileController::class, 'updateSummary'])
 Route::put('/profile.profile_picture', [profileController::class, 'updatePfp'])
     ->middleware('auth')
     ->name('profile.picture.update');
+
+    // guestbook
+
+Route::post('/profile/{user}/guestbook', [GuestbookController::class, 'store'])
+    ->middleware('auth')
+    ->name('guestbook.store');
