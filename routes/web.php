@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuestbookController;
 use App\Http\Controllers\profileController;
+use App\Models\GuestbookEntry;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -21,8 +22,13 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/profile/{user}', function (User $user) {
 
+    $guestbookEntries = GuestbookEntry::where('profile_id', $user->id)
+        ->latest()
+        ->get();
+
     return view('profile.show', [
         'user' => $user,
+        'guestbookEntries' => $guestbookEntries,
     ]);
 })->name('profile.show');
 
