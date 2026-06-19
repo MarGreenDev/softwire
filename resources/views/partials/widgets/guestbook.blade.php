@@ -24,7 +24,29 @@
         </div>
     </form>
     @endauth
-    @foreach ($guestbookEntries as $entry)
-    <p>{{ $entry->message }}</p>
-    @endforeach
+
+    <!-- GUESTBOOK ENTRIES -->
+
+    <div class="divide-y divide-pink-300">
+        @foreach ($guestbookEntries as $entry)
+        <div class="p-2">
+            <div class="flex gap-3">
+                @empty($entry->author->profile_picture)
+                <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
+                    class="size-15 aspect-square">
+                @else
+                <img src="{{ Storage::url($entry->author->profile_picture) }}" alt="profile picture"
+                    class="size-15 aspect-square">
+                    @endempty
+                <div class="flex-1">
+                    <div class="flex justify-between">
+                        <span class="font-semibold">{{ $entry->author->name }}</span>
+                        <p>{{ $entry->created_at->format('d M Y H:i') }}</p>
+                    </div>
+                    <p>{{ $entry->message }}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
 </section>
