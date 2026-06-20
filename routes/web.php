@@ -24,7 +24,7 @@ Route::get('/profile/{user}', function (User $user) {
 
     $guestbookEntries = GuestbookEntry::where('profile_id', $user->id)
         ->latest()
-        ->get();
+        ->paginate(3);
 
     return view('profile.show', [
         'user' => $user,

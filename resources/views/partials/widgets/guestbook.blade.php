@@ -33,10 +33,10 @@
             <div class="flex gap-3">
                 @empty($entry->author->profile_picture)
                 <a href="{{ route('profile.show', $entry->author) }}"><img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
-                    class="size-15 aspect-square"></a>
+                        class="size-15 aspect-square"></a>
                 @else
                 <a href="{{ route('profile.show', $entry->author) }}"><img src="{{ Storage::url($entry->author->profile_picture) }}" alt="profile picture"
-                    class="size-15 aspect-square"></a>
+                        class="size-15 aspect-square"></a>
                 @endempty
                 <div class="flex-1 divide-y text-pink-600">
                     <div class="flex justify-between">
@@ -48,5 +48,9 @@
             </div>
         </div>
         @endforeach
+
+        <div class="p-3">
+            {{ $guestbookEntries->links('pagination.softwire') }}
+        </div>
     </div>
 </section>
