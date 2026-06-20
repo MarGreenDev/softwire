@@ -29,19 +29,19 @@
 
     <div class="divide-y divide-pink-300">
         @foreach ($guestbookEntries as $entry)
-        <div class="p-2">
+        <div class="p-4">
             <div class="flex gap-3">
                 @empty($entry->author->profile_picture)
-                <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
-                    class="size-15 aspect-square">
+                <a href="{{ route('profile.show', $entry->author) }}"><img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
+                    class="size-15 aspect-square"></a>
                 @else
-                <img src="{{ Storage::url($entry->author->profile_picture) }}" alt="profile picture"
-                    class="size-15 aspect-square">
-                    @endempty
-                <div class="flex-1">
+                <a href="{{ route('profile.show', $entry->author) }}"><img src="{{ Storage::url($entry->author->profile_picture) }}" alt="profile picture"
+                    class="size-15 aspect-square"></a>
+                @endempty
+                <div class="flex-1 divide-y text-pink-600">
                     <div class="flex justify-between">
-                        <span class="font-semibold">{{ $entry->author->name }}</span>
-                        <p>{{ $entry->created_at->format('d M Y H:i') }}</p>
+                        <a href="{{ route('profile.show', $entry->author) }}"><span class="font-semibold">{{ $entry->author->name }}</span></a>
+                        <p class="italic text-xs text-pink-400">{{ $entry->created_at->format('d M Y H:i') }}</p>
                     </div>
                     <p>{{ $entry->message }}</p>
                 </div>
