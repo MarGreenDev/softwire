@@ -1,39 +1,46 @@
 @if ($paginator->hasPages())
-    <div class="flex justify-center gap-3 p-3">
+<div class="flex justify-center gap-3 p-3">
 
-        @if ($paginator->onFirstPage())
-            <span class="btn-primary opacity-50">
-                Previous
-            </span>
+    @if ($paginator->onFirstPage())
+    <span class="btn-primary opacity-50">
+        <
+    </span>
+    @else
+    <a href="{{ $paginator->previousPageUrl() }}"
+        class="btn-primary">
+        <
+    </a>
+    @endif
+
+    <span>
+        @foreach ($elements as $element)
+
+        @foreach ($element as $number => $page)
+
+        @if ($number==$paginator->currentPage())
+
+        <a href="{{ $page }}"
+            class="underline font-bold">[{{ $number }}]</a>
+
         @else
-            <a href="{{ $paginator->previousPageUrl() }}"
-               class="btn-primary">
-                Previous
-            </a>
+        <a href="{{ $page }}">[{{ $number }}]</a>
         @endif
 
-        <span>
-            @foreach ($elements as $element)
-            
-              @foreach ($element as $number => $page)
+        @endforeach
 
-                <a href="{{ $page }}">[{{ $number }}]</a> 
+        @endforeach
+    </span>
 
-              @endforeach
-            
-            @endforeach
-        </span>
+    @if ($paginator->hasMorePages())
+    <a href="{{ $paginator->nextPageUrl() }}"
+        class="btn-primary">
+        >
+    </a>
+    @else
+    <span class="btn-primary opacity-50">
+        >
+    </span>
+    @endif
 
-        @if ($paginator->hasMorePages())
-            <a href="{{ $paginator->nextPageUrl() }}"
-               class="btn-primary">
-                Next
-            </a>
-        @else
-            <span class="btn-primary opacity-50">
-                Next
-            </span>
-        @endif
-
-    </div>
+</div>
 @endif

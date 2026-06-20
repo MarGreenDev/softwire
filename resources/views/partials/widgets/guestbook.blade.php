@@ -38,12 +38,12 @@
                 <a href="{{ route('profile.show', $entry->author) }}"><img src="{{ Storage::url($entry->author->profile_picture) }}" alt="profile picture"
                         class="size-15 aspect-square"></a>
                 @endempty
-                <div class="flex-1 divide-y text-pink-600">
+                <div class="flex-1 divide-y text-pink-700">
                     <div class="flex justify-between">
                         <a href="{{ route('profile.show', $entry->author) }}"><span class="font-semibold">{{ $entry->author->name }}</span></a>
                         <p class="italic text-xs text-pink-400">{{ $entry->created_at->format('d M Y H:i') }}</p>
                     </div>
-                    <p>{{ $entry->message }}</p>
+                    <p class="pt-2 text-pink-500">{{ $entry->message }}</p>
                 </div>
             </div>
         </div>
