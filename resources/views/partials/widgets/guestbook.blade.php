@@ -39,7 +39,7 @@
                         class="size-15 aspect-square"></a>
                 @endempty
                 <div class="flex-1 divide-y text-pink-700">
-                    <div class="flex justify-between">
+                    <div class="flex justify-between bg-pink-200 rounded-t-lg p-2">
                         <a href="{{ route('profile.show', $entry->author) }}"><span class="font-semibold">{{ $entry->author->name }}</span></a>
                         <p class="italic text-xs text-pink-400">{{ $entry->created_at->format('d M Y H:i') }}</p>
                     </div>
