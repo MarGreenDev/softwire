@@ -1,4 +1,4 @@
-<section class="widget col-span-1 md:col-span-12">
+<section class="widget col-span-1 md:col-span-12" id="guestbook">
     <div class="widget-header">
         <h2>Guestbook</h2>
     </div>
@@ -29,8 +29,13 @@
 
     <div class="divide-y divide-pink-300">
         @foreach ($guestbookEntries as $entry)
-        <div class="p-4">
-            <div class="flex gap-3">
+        <div class="p-3">
+            <div class="flex justify-between bg-linear-to-t from-pink-200 to-pink-300 rounded-t-lg p-2 border-pink-500 border widget-header">
+                <a href="{{ route('profile.show', $entry->author) }}"><span class="font-semibold">{{ $entry->author->name }}</span></a>
+                <p class="italic text-xs font-normal text-pink-700/50">{{ $entry->created_at->format('d M Y H:i') }}</p>
+            </div>
+            <div class="flex gap-3 border border-pink-500 bg-linear-to-t from-pink-50 to-pink-100 widget">
+
                 @empty($entry->author->profile_picture)
                 <a href="{{ route('profile.show', $entry->author) }}"><img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
                         class="size-15 aspect-square"></a>
@@ -39,14 +44,12 @@
                         class="size-15 aspect-square"></a>
                 @endempty
                 <div class="flex-1 divide-y text-pink-700">
-                    <div class="flex justify-between bg-pink-200 rounded-t-lg p-2">
-                        <a href="{{ route('profile.show', $entry->author) }}"><span class="font-semibold">{{ $entry->author->name }}</span></a>
-                        <p class="italic text-xs text-pink-400">{{ $entry->created_at->format('d M Y H:i') }}</p>
-                    </div>
+
                     <p class="pt-2 text-pink-500">{{ $entry->message }}</p>
                 </div>
             </div>
         </div>
+
         @endforeach
 
         <div class="p-3">

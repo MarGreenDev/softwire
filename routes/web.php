@@ -22,9 +22,10 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/profile/{user}', function (User $user) {
 
-    $guestbookEntries = GuestbookEntry::where('profile_id', $user->id)
+    $guestbookEntries = GuestbookEntry::where('profile_id', $user->id,)
         ->latest()
-        ->paginate(3);
+        ->paginate(3)
+        ->fragment('guestbook');
 
     return view('profile.show', [
         'user' => $user,
