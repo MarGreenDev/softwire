@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuestbookController;
 use App\Http\Controllers\profileController;
@@ -81,3 +82,7 @@ Route::put('/profile.profile_picture', [profileController::class, 'updatePfp'])
 Route::post('/profile/{user}/guestbook', [GuestbookController::class, 'store'])
     ->middleware('auth')
     ->name('guestbook.store');
+
+    // ADMIN
+
+Route::get('/admin', [DashboardController::class, 'getAllUsers']);
