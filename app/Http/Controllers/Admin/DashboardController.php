@@ -11,9 +11,11 @@ class DashboardController extends Controller
     public function getAllUsers ()
     {
         $users = User::all();
+        $newestUser = User::latest()->first();
 
         return view('admin.admin-dashboard', [
-            'users' => $users
+            'users' => $users,
+            'newestUser' => $newestUser->name,
         ]);
     }
 }
