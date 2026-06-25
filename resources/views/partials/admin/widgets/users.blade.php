@@ -1,5 +1,5 @@
-<div class="bg-pink-50">
-    <div class="bg-pink-400 text-white font-semibold px-4">
+<div class="widget">
+    <div class="widget-header">
         <h2>Users</h2>
     </div>
 
@@ -12,25 +12,7 @@
             Newest user: {{ $newestUser }}
         </span>
 
-        <table>
-            <tr>
-                <th>User ID</th>
-                <th>User Name</th>
-            </tr>
-
-            @foreach ($users as $user)
-
-            <tr>
-                <td>
-                    {{ $user->id }}
-                </td>
-                <td>
-                    {{ $user->name }}
-                </td>
-            </tr>
-
-            @endforeach
-        </table>
+        <button class="btn-primary">User overview</button>
     </div>
 
 </div>

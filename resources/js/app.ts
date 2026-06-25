@@ -58,3 +58,7 @@ cancelChangePfp?.addEventListener('click', () => {
     cancelChangePfp?.classList.add("hidden");
     changePfp?.classList.add("hidden");
 })
+
+// modal
+
+

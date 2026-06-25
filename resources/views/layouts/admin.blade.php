@@ -7,7 +7,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
-<body class="bg-pink-300 min-h-screen flex flex-col">
+<body class="bg-pink-200 min-h-screen flex flex-col">
     
     @include('partials.admin.header')
     <main class="grid grid-cols-12 gap-12 p-10">
