@@ -16,14 +16,17 @@ SoftWire Admin
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs">
     <div class="widget">
         <div class="widget-header">
-            Header
+            Users
         </div>
-        <table class="w-full border-collapse">
+        <table class="w-full border-collapse mt-10">
 
             <thead class="bg-pink-300 font-bold">
                 <tr>
                     <th class="p-2 text-left">User ID</th>
-                    <th class="p-2 text-left">User name</th>
+                    <th class="p-2 text-left">Username</th>
+                    <th class="p-2 text-left">E-mail</th>
+                    <th class="p-2 text-left">Join date</th>
+                    <th class="p-2 text-left">Actions</th>
                 </tr>
             </thead>
 
@@ -32,6 +35,11 @@ SoftWire Admin
             <tr class="hover:bg-pink-200">
                 <td class="p-2 border-t border-pink-300">{{ $user->id }}</td>
                 <td class="p-2 border-t border-pink-300">{{ $user->name }}</td>
+                <td class="p-2 border-t border-pink-300">{{ $user->email }}</td>
+                <td class="p-2 border-t border-pink-300">{{ $user->created_at }}</td>
+                <td class="p-2 border-t border-pink-300">
+                    <a href="{{ route('profile.admin', $user) }}">View profile</a>
+                </td>
             </tr>
 
             @endforeach

@@ -86,3 +86,10 @@ Route::post('/profile/{user}/guestbook', [GuestbookController::class, 'store'])
     // ADMIN
 
 Route::get('/admin', [DashboardController::class, 'getAllUsers']);
+
+Route::get('/profile/admin/{user}', function (User $user) {
+    
+return view('profile.admin-view', [
+    'user' => $user
+]);
+})->name('profile.admin');
