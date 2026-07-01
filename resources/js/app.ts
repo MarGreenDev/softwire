@@ -61,4 +61,21 @@ cancelChangePfp?.addEventListener('click', () => {
 
 // modal
 
+const userModal = document.querySelector<HTMLElement>("#user-modal");
+const openModal = document.querySelector<HTMLElement>("#openModal");
+const closeModal = document.querySelector<HTMLElement>("#closeModal");
+
+closeModal?.addEventListener('click', () => {
+    userModal?.classList.add("hidden");
+});
+
+openModal?.addEventListener('click', () => {
+    userModal?.classList.remove("hidden");
+})
+
+userModal?.addEventListener('click', (e) => {
+    if (e.target === userModal) {
+        userModal?.classList.add("hidden");
+    }
+}) 
 

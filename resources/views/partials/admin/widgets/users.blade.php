@@ -12,7 +12,7 @@
             Newest user: {{ $newestUser }}
         </span>
 
-        <button class="btn-primary">User overview</button>
+        <button class="btn-primary" id="openModal">User overview</button>
     </div>
 
 </div>
