@@ -10,7 +10,7 @@ Softwire Admin {{ $user->name }}
     <a href="/admin">Back to admin panel</a>
 </div>
 
-<div>
+<div class="col-span-3">
     <h1 class="text-5xl font-bold">{{ $user->name }}</h1>
 
     @empty($user->profile_picture)
@@ -19,7 +19,10 @@ Softwire Admin {{ $user->name }}
     <img src="{{ Storage::url($user->profile_picture) }}" alt="profile picture">
     @endempty
 
+</div>
 
+<div class="col-span-4 bg-pink-50">
+    <p>{{ $user->about_me }}</p>
 </div>
 
 
