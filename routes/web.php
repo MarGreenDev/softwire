@@ -93,4 +93,5 @@ Route::get('/profile/admin/{user}', function (User $user) {
 return view('profile.admin-view', [
     'user' => $user
 ]);
-})->name('profile.admin');
+})->name('profile.admin')
+  ->middleware('admin');
