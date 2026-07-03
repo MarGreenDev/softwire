@@ -1,6 +1,6 @@
 <div
     {{ $attributes->merge([
-        'class' => 'fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm'
+        'class' => 'fixed inset-0 z-50 flex items-center justify-center bg-pink-900/40 backdrop-blur-sm'
     ]) }}>
     <div class="widget max-w-4xl w-full">
         @isset($title)

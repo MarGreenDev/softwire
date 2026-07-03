@@ -85,7 +85,8 @@ Route::post('/profile/{user}/guestbook', [GuestbookController::class, 'store'])
 
     // ADMIN
 
-Route::get('/admin', [DashboardController::class, 'getAllUsers']);
+Route::get('/admin', [DashboardController::class, 'getAllUsers'])
+    ->middleware('admin');
 
 Route::get('/profile/admin/{user}', function (User $user) {
     
