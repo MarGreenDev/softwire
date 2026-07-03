@@ -21,7 +21,7 @@
         <!-- nav -->
         @include ('partials.nav')
 
-        <main class="w-full">
+        <main class="w-full flex-1 flex flex-col">
 
             @yield('content')
 

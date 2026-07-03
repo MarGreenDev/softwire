@@ -18,13 +18,13 @@ class AdminMiddleware
     {
         if (!Auth::check()) {
             //user is not logged in
-            return redirect('/');
+            abort(403);
         }
 
         if (Auth::check()) {
             //user is logged in
             if (Auth::id() !== 1) {
-                return redirect('/');
+                abort(403);
             }
         }
 
