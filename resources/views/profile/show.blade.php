@@ -36,18 +36,18 @@
                     @endauth
 
                     <form action="{{ route('profile.picture.update') }}" method="post"
-                    enctype="multipart/form-data" id="changePfp"
-                    class="hidden">
+                        enctype="multipart/form-data" id="changePfp"
+                        class="hidden">
                         @csrf
                         @method('PUT')
 
                         <input type="file" name="profile_picture" id="profile_picture"
-                        class="w-full file:bg-pink-200 pb-2 font-semibold text-pink-900 file:p-1 file:border
+                            class="w-full file:bg-pink-200 pb-2 font-semibold text-pink-900 file:p-1 file:border
                         file:border-pink-400 file:shadow-[1px_1px_0_0_#ec4899]
                         file:inset-shadow-[1px_1px_0_0_#ffe4f1]">
 
                         <button type="submit"
-                        class="btn-primary w-full">Save</button>
+                            class="btn-primary w-full">Save</button>
 
                     </form>
 
@@ -57,11 +57,17 @@
                     <img src="{{ Storage::url($user->profile_picture) }}" alt="profile picture">
                     @endempty
                 </div>
-                
+
                 <div class="flex text-center justify-center text-pink-900 font-bold">
                     <span>◈</span>
                     <h3>{{ $user->name }}</h3>
+
                 </div>
+                @if ($user->id === 1)
+                <div class="text-center">
+                    <span class="font-semibold text-pink-500">[ADMIN]</span>
+                </div>
+                @endif
 
                 <div class="border-5 border-pink-500 border-double p-3">
                     <!-- pronouns -->
