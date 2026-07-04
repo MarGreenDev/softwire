@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="bg-pink-100 backdrop-blur-sm p-3">
+<div class="flex-1 bg-pink-100/30 backdrop-blur-sm p-3">
     <div class="flex items-center justify-center">
 
         <div class="form-container">
