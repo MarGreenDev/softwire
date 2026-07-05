@@ -1,4 +1,5 @@
 import DataTable from 'datatables.net-dt';
+import 'datatables.net-dt/css/dataTables.dataTables.css';
 import './popup2';
 
 // About me edit logic thing
