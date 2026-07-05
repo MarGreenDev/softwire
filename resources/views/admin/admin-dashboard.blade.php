@@ -16,7 +16,7 @@ SoftWire Admin
         Users
     </x-slot:title>
 
-    <table class="w-full border-collapse">
+    <table class="w-full border-collapse" id="usersTable">
 
         <thead class="bg-pink-300 font-bold">
             <tr>

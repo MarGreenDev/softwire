@@ -1,3 +1,4 @@
+import DataTable from 'datatables.net-dt';
 import './popup2';
 
 // About me edit logic thing
@@ -71,11 +72,15 @@ closeModal?.addEventListener('click', () => {
 
 openModal?.addEventListener('click', () => {
     userModal?.classList.remove("hidden");
-})
+});
 
 userModal?.addEventListener('click', (e) => {
     if (e.target === userModal) {
         userModal?.classList.add("hidden");
     }
-}) 
+});
 
+// Datatable
+
+
+let usersTable = new DataTable('#usersTable');
