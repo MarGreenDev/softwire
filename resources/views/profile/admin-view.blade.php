@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-Softwire Admin {{ $user->name }}
+Softwire Admin: {{ $user->name }}
 @endsection
 
 @section('content')
@@ -21,8 +21,22 @@ Softwire Admin {{ $user->name }}
 
 </div>
 
-<div class="col-span-4 bg-pink-50">
-    <p>{{ $user->about_me }}</p>
+<div class="col-span-4 bg-pink-50 p-4 flex flex-col">
+    @empty($user->about_me)
+    <p>This user hasn't written an about me yet</p>
+    @else
+    <p class="flex-1">{{ $user->about_me }}</p>
+
+
+    <form action="{{ route('users.removeField', $user) }}" method="post">
+        @csrf
+        @method('PATCH')
+        
+        <input type="hidden" name="field" value="about_me">
+        <button class="btn-primary">Remove about me</button>
+        
+    </form>
+    @endempty
 </div>
 
 

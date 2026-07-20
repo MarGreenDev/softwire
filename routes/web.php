@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuestbookController;
 use App\Http\Controllers\profileController;
@@ -95,3 +96,7 @@ return view('profile.admin-view', [
 ]);
 })->name('profile.admin')
   ->middleware('admin');
+
+Route::patch('/profile/admin/{user}', [UserController::class, 'removeField'])
+    ->name('users.removeField')
+    ->middleware('admin');
