@@ -17,6 +17,13 @@ Softwire Admin: {{ $user->name }}
     <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture" class="aspect-square object-cover">
     @else
     <img src="{{ Storage::url($user->profile_picture) }}" alt="profile picture" class="aspect-square object-cover">
+    <form action="{{ route('users.removeField', $user) }}" method="post">
+        @csrf
+        @method('PATCH')
+
+        <input type="hidden" name="field" value="profile_picture">
+        <button class="btn-primary">Remove profile picture</button>
+    </form>
     @endempty
 
 </div>
@@ -34,7 +41,7 @@ Softwire Admin: {{ $user->name }}
         
         <input type="hidden" name="field" value="about_me">
         <button class="btn-primary">Remove about me</button>
-        
+
     </form>
     @endempty
 </div>
