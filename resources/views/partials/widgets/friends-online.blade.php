@@ -12,10 +12,10 @@
                 <a href="{{ route('profile.show', $user) }}">
                     @empty($user->profile_picture)
                     <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
-                    class="size-15 aspect-square">
+                    class="size-15 aspect-square object-cover">
                     @else
                     <img src="{{ Storage::url($user->profile_picture) }}" alt="profile picture"
-                    class="size-15 aspect-square">
+                    class="size-15 aspect-square object-cover">
                     @endempty
                 </a>
                 <span class="hover:underline">

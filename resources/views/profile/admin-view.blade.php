@@ -14,9 +14,9 @@ Softwire Admin {{ $user->name }}
     <h1 class="text-5xl font-bold">{{ $user->name }}</h1>
 
     @empty($user->profile_picture)
-    <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture">
+    <img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture" class="aspect-square object-cover">
     @else
-    <img src="{{ Storage::url($user->profile_picture) }}" alt="profile picture">
+    <img src="{{ Storage::url($user->profile_picture) }}" alt="profile picture" class="aspect-square object-cover">
     @endempty
 
 </div>

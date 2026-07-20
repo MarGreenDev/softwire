@@ -38,10 +38,10 @@
 
                 @empty($entry->author->profile_picture)
                 <a href="{{ route('profile.show', $entry->author) }}"><img src="{{ asset('images/default-pfp.jpg') }}" alt="profile picture"
-                        class="size-15 aspect-square"></a>
+                        class="size-15 aspect-square object-cover"></a>
                 @else
                 <a href="{{ route('profile.show', $entry->author) }}"><img src="{{ Storage::url($entry->author->profile_picture) }}" alt="profile picture"
-                        class="size-15 aspect-square"></a>
+                        class="size-15 aspect-square object-cover"></a>
                 @endempty
                 <div class="flex-1 divide-y text-pink-700">
 
