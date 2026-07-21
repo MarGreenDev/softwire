@@ -46,5 +46,6 @@ Softwire Admin: {{ $user->name }}
     @endempty
 </div>
 
+@include('partials.admin.widgets.user-guestbook-entries')
 
 @endsection

@@ -89,13 +89,9 @@ Route::post('/profile/{user}/guestbook', [GuestbookController::class, 'store'])
 Route::get('/admin', [DashboardController::class, 'getAllUsers'])
     ->middleware('admin');
 
-Route::get('/profile/admin/{user}', function (User $user) {
-    
-return view('profile.admin-view', [
-    'user' => $user
-]);
-})->name('profile.admin')
-  ->middleware('admin');
+Route::get('profile/admin/{user}', [UserController::class, 'show'])
+    ->name('profile.admin')
+    ->middleware('admin');
 
 Route::patch('/profile/admin/{user}', [UserController::class, 'removeField'])
     ->name('users.removeField')

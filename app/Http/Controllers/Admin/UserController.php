@@ -3,11 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\GuestbookEntry;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function show(User $user) {
+
+    $writtenGuestbookEntries = $user->guestbookEntriesWritten;    
+
+        return view('profile.admin-view', [
+            'user' => $user,
+            'writtenGuestbook' => $writtenGuestbookEntries,
+        ]);
+    }
+
     public function removeField(Request $request, User $user) {
 
     $allowed = [
