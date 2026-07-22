@@ -1,4 +1,4 @@
-<div class="col-span-3">
+<div class="col-span-4">
     <button class="btn-primary"
         id="openGuestbookModal">
         View guestbook entries written by this user
