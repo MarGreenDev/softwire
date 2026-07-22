@@ -4,7 +4,7 @@
     </div>
     @guest
         <div class="text-center italic p-5">
-            <p>❀ Log in to place guestbook messages! ❀</p>
+            <p>❀ <a href="/login" class="underline text-pink-700">Log in</a> to place guestbook messages! ❀</p>
         </div>
     @endguest
     @auth
