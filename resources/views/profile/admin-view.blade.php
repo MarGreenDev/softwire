@@ -25,6 +25,33 @@ Softwire Admin: {{ $user->name }}
         <button class="btn-primary">Remove profile picture</button>
     </form>
     @endempty
+    <!-- PRONOUNS -->
+    @empty($user->pronouns)
+    <p>This user hasn't set their pronouns yet</p>
+    @else
+    <p>{{ $user->pronouns }}</p>
+    <form action="{{ route('users.removeField', $user) }}" method="post">
+        @csrf
+        @method('PATCH')
+
+        <input type="hidden" name="field" value="pronouns">
+        <button>Remove pronouns</button>
+    </form>
+    @endempty
+
+    <!-- STATUS MESSAGE -->
+    @empty($user->status)
+    <p>This user hasn't written a status message yet</p>
+    @else
+    <p>{{ $user->status }}</p>
+    <form action="{{ route('users.removeField', $user) }}" method="post">
+        @csrf
+        @method('PATCH')
+
+        <input type="hidden" name="field" value="status">
+        <button>Remove status message</button>
+    </form>
+    @endempty
 
 </div>
 
@@ -38,7 +65,7 @@ Softwire Admin: {{ $user->name }}
     <form action="{{ route('users.removeField', $user) }}" method="post">
         @csrf
         @method('PATCH')
-        
+
         <input type="hidden" name="field" value="about_me">
         <button class="btn-primary">Remove about me</button>
 
