@@ -81,7 +81,25 @@ userModal?.addEventListener('click', (e) => {
     }
 });
 
+const guestbookEntriesModal = document.querySelector<HTMLElement>("#guestbookEntriesWritten");
+const openGuestbookModal = document.querySelector<HTMLElement>("#openGuestbookModal");
+
+openGuestbookModal?.addEventListener('click', () => {
+    guestbookEntriesModal?.classList.remove("hidden");
+});
+
+guestbookEntriesModal?.addEventListener('click', (e) => {
+    if (e.target === guestbookEntriesModal) {
+        guestbookEntriesModal?.classList.add("hidden");
+    }
+})
+
+
+
 // Datatable
 
 
 let usersTable = new DataTable('#usersTable');
+let guestbookEntriesTable = new DataTable('#guestbookEntriesTable', {
+    pageLength: 5
+});
