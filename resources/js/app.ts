@@ -69,6 +69,7 @@ const closeModal = document.querySelector<HTMLElement>("#closeModal");
 
 closeModal?.addEventListener('click', () => {
     userModal?.classList.add("hidden");
+    guestbookEntriesModal?.classList.add("hidden");
 });
 
 openModal?.addEventListener('click', () => {
@@ -92,7 +93,7 @@ guestbookEntriesModal?.addEventListener('click', (e) => {
     if (e.target === guestbookEntriesModal) {
         guestbookEntriesModal?.classList.add("hidden");
     }
-})
+});
 
 
 

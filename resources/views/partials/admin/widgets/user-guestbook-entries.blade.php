@@ -13,7 +13,7 @@
             <thead class="bg-pink-300 font-bold">
 
                 <tr>
-                    <th class="p-2 text-left">Recepient ID</th>
+                    <th class="p-2 text-left">Recepient ID</th> <!-- ill figure out how to get the recipient username later :) -->
                     <th class="p-2 text-left">Message</th>
                     <th class="p-2 text-left">Posted on</th>
                     <th class="p-2 text-left">Actions</th>
