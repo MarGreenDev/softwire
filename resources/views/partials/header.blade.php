@@ -15,12 +15,15 @@
                         @endauth
                 </div>
             </div>
-            <div>
+            <div class="flex justify-between">
                 @guest
                 <p>You are not logged in ＞︿＜</p>
                 @endguest
                 @auth
                 <p>Hii, {{ Auth::user()->name }}!!! ₊˚⊹♡</p>
+                @if(Auth::id() === 1)
+                <a href="/admin" class="underline text-pink-700 cursor-pointer">Admin page</a>
+                @endif
                 @endauth
             </div>
 
