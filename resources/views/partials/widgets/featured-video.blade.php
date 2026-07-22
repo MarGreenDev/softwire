@@ -1,4 +1,4 @@
-<div class="widget">
+<div class="widget col-span-1 md:col-span-9">
     <div class="widget-header">
         <h2>Featured video ⁕</h2>
     </div>
