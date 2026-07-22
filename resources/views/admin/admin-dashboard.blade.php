@@ -35,7 +35,7 @@ SoftWire Admin
                 <td class="p-2 border-t border-pink-300">{{ $user->email }}</td>
                 <td class="p-2 border-t border-pink-300">{{ $user->created_at }}</td>
                 <td class="p-2 border-t border-pink-300">
-                    <a href="{{ route('profile.admin', $user) }}" target="_blank">View profile</a>
+                    <a href="{{ route('profile.admin', $user) }}">View profile</a>
                 </td>
             </tr>
         @endforeach
