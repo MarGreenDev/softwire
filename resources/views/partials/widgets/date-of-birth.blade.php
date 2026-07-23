@@ -15,12 +15,19 @@
             <span class="italic text-xs">You don't have to add your birthday, this widget won't show up if you haven't added it</span>
         </div>
         @endif
+        @else
+        <div class="flex flex-col items-center">
+            <p>🍰 {{ $user->dob->format('jS F Y') }}</p>
+
+            <p>I will add starsign later</p>
+
+        </div>
         @endempty
 
         <div id="birthdayForm" class="p-3 hidden">
             <form action="{{ route('profile.birthday.update') }}" class="flex flex-col items-center" method="post">
-            @csrf
-            @method('PUT')
+                @csrf
+                @method('PUT')
 
 
                 <div class="form-element flex-col">
@@ -29,8 +36,8 @@
                 </div>
 
                 <div>
-                <button type="submit" class="btn-primary">Save</button>
-                <button type="button" id="birthdayCancel" class="btn-primary">Cancel</button>
+                    <button type="submit" class="btn-primary">Save</button>
+                    <button type="button" id="birthdayCancel" class="btn-primary">Cancel</button>
                 </div>
             </form>
         </div>

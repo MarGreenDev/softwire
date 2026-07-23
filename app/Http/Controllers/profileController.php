@@ -51,7 +51,7 @@ class profileController extends Controller
         return back();
     }
 
-    public function updateBirthday(Request $request)
+    public function updateBirthday(Request $request) //i still need to add a bunch of validation messages
     {
         $request->validate([
             'dob' => [
