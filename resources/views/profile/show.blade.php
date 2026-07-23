@@ -48,7 +48,7 @@
                         <input type="file" name="profile_picture" id="profile_picture"
                             class="w-full file:bg-pink-200 pb-2 font-semibold text-pink-900 file:p-1 file:border
                         file:border-pink-400 file:shadow-[1px_1px_0_0_#ec4899]
-                        file:inset-shadow-[1px_1px_0_0_#ffe4f1]">
+                        file:inset-shadow-[1px_1px_0_0_#ffe4f1]" required>
 
                         <button type="submit"
                             class="btn-primary w-full">Save</button>
