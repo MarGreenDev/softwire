@@ -18,7 +18,11 @@
         @endempty
 
         <div id="birthdayForm" class="p-3 hidden">
-            <form action="update-dob" class="flex flex-col items-center">
+            <form action="{{ route('profile.birthday.update') }}" class="flex flex-col items-center" method="post">
+            @csrf
+            @method('PUT')
+
+
                 <div class="form-element flex-col">
                     <label for="dob" class="text-pink-500">Enter your birthday:</label>
                     <input type="date" name="dob" id="dob">

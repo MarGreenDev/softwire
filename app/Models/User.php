@@ -26,6 +26,7 @@ class User extends Authenticatable
         'pronouns',
         'status',
         'profile_picture',
+        'dob',
     ];
 
     /**

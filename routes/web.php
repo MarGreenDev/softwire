@@ -78,6 +78,10 @@ Route::put('/profile.profile_picture', [profileController::class, 'updatePfp'])
     ->middleware('auth')
     ->name('profile.picture.update');
 
+Route::put('/profile.birthday', [profileController::class, 'updateBirthday'])
+    ->middleware('auth')
+    ->name('profile.birthday.update');
+
     // guestbook
 
 Route::post('/profile/{user}/guestbook', [GuestbookController::class, 'store'])

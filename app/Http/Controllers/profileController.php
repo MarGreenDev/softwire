@@ -39,14 +39,32 @@ class profileController extends Controller
     {
         $request->validate([
             'profile_picture' => 'image|max:2048',
-            ]);
-            
-            $pfpPath = $request->file('profile_picture')->store('profile-pictures', 'public');
+        ]);
+
+        $pfpPath = $request->file('profile_picture')->store('profile-pictures', 'public');
 
         auth()->user()->update([
             'profile_picture' => $pfpPath,
         ]);
 
+
+        return back();
+    }
+
+    public function updateBirthday(Request $request)
+    {
+        $request->validate([
+            'dob' => [
+                'date',
+                'required',
+                'before_or_equal:today',
+                'after_or_equal:' . now()->subYears(120)->toDateString(),
+            ],
+        ]);
+
+        auth()->user()->update([
+            'dob' => $request->dob,
+        ]);
 
         return back();
     }
