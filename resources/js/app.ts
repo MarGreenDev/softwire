@@ -59,7 +59,24 @@ cancelChangePfp?.addEventListener('click', () => {
     changePfpBtn?.classList.remove("hidden");
     cancelChangePfp?.classList.add("hidden");
     changePfp?.classList.add("hidden");
-})
+});
+
+// birthday
+
+const addBirthday = document.querySelector<HTMLElement>('#addBirthday');
+const birthdayForm = document.querySelector<HTMLElement>('#birthdayForm');
+const birthdayCancel = document.querySelector<HTMLElement>('#birthdayCancel');
+const birthdayEmpty = document.querySelector<HTMLElement>('#birthdayEmpty');
+
+addBirthday?.addEventListener('click', () => {
+    birthdayForm?.classList.remove("hidden");
+    birthdayEmpty?.classList.add("hidden");
+});
+
+birthdayCancel?.addEventListener('click', () => {
+    birthdayForm?.classList.add("hidden");
+    birthdayEmpty?.classList.remove("hidden");
+});
 
 // modal
 

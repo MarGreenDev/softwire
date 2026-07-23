@@ -137,6 +137,7 @@
             </div>
         </div>
 
+
     </aside>
 
     <section class="col-span-1 md:col-span-6 space-y-4">
@@ -198,6 +199,22 @@
 </section>
 
 <aside class="col-span-1 md:col-span-3 space-y-4">
+
+    @if(Auth::id() !== $user->id)
+    @empty($user->dob)
+
+    @else
+    @include('partials.widgets.date-of-birth')
+
+    @endempty
+    @elseif(Auth::id() === $user->id)
+
+    @include('partials.widgets.date-of-birth')
+    
+    @endif
+
+
+
 
     <section class="widget">
         <div class="widget-header">
