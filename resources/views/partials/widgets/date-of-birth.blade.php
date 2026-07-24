@@ -16,10 +16,10 @@
         </div>
         @endif
         @else
-        <div class="flex flex-col items-center">
-            <p>🍰 {{ $user->dob->format('jS F Y') }}</p>
+        <div class="flex flex-col items-center gap-2 p-3 divide-pink-400 divide-y-2 text-pink-600">
+            <p>🍰 {{ $user->dob->format('F jS') }}</p>
 
-            <p id="zodiacSign" data-dob="{{ $user->dob->format('Y-m-d') }}">Loading...</p>
+            <p id="zodiacSign" data-dob="{{ $user->dob->format('Y-m-d') }}" class="text-sm">Loading...</p>
 
         </div>
         @endempty
