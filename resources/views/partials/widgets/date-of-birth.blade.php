@@ -19,7 +19,7 @@
         <div class="flex flex-col items-center">
             <p>🍰 {{ $user->dob->format('jS F Y') }}</p>
 
-            <p>I will add starsign later</p>
+            <p id="zodiacSign" data-dob="{{ $user->dob->format('Y-m-d') }}">Loading...</p>
 
         </div>
         @endempty

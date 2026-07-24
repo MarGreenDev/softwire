@@ -1,6 +1,7 @@
 import DataTable from 'datatables.net-dt';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import './popup2';
+import './zodiac';
 
 // About me edit logic thing
 const aboutmeBtn = document.querySelector<HTMLElement>("#aboutmeBtn");
