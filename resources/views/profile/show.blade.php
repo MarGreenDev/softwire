@@ -117,7 +117,7 @@
                 @auth
                 @if (Auth::id() !== $user->id)
                 <div class="flex justify-center">
-                    <button class="btn-primary">Add friend</button>
+                    <button class="btn-primary inactive" title="Coming soon!">Add friend</button>
                 </div>
                 @endif
                 @endauth

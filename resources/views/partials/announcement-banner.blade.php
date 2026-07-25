@@ -8,7 +8,7 @@
     <span class="mx-8">
         our newest member:
         <a href="{{ route('profile.show', $newestUser) }}">{{ $newestUser->name }}</a>
-        , say hiii!!!! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+        , say hiii!!!!
     </span>
     @endif
 </marquee>
