@@ -16,6 +16,8 @@ Route::view('/login', 'login');
 
 Route::view('/register', 'register');
 
+Route::view('/roadmap', 'roadmap');
+
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);

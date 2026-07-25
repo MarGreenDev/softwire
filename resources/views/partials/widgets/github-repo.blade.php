@@ -9,7 +9,7 @@
         <div class="text-pink-500">
             <p>Curious about how this website was built?</p>
             <p>Check out the <a href="https://github.com/MarGreenDev/softwire"
-                    class="underline text-pink-700" target="_blank">GitHub repo</a>!</p>
+                    class="underline text-pink-700" target="_blank">GitHub repo↗</a>!</p>
         </div>
 
         <a href="https://github.com/MarGreenDev/softwire" target="_blank" class="mx-auto">

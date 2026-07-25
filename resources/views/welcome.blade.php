@@ -23,6 +23,7 @@
         <section class="grid grid-cols-1 md:grid-cols-9 col-span-1 md:col-span-9 gap-5">
             @include('partials.widgets.github-repo')
 
+            @include('partials.widgets.roadmap-widget')            
 
             @include('partials.widgets.featured-video')
 
@@ -30,7 +31,6 @@
 
         <aside class="col-span-1 md:col-span-3">
 
-            
 
         </aside>
 
