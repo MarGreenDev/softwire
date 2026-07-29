@@ -8,7 +8,6 @@ use App\Http\Controllers\profileController;
 use App\Models\GuestbookEntry;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 Route::view('/', 'welcome');
 
@@ -18,9 +17,11 @@ Route::view('/register', 'register');
 
 Route::view('/roadmap', 'roadmap');
 
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register'])
+    ->middleware('throttle:3,60');
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])
+    ->middleware('throttle:5,1');
 
 Route::post('/logout', [AuthController::class, 'logout']);
 
@@ -70,24 +71,28 @@ Route::get('/search', function () {
 
 Route::put('/profile.about-me', [profileController::class, 'updateAboutMe'])
     ->middleware('auth')
-    ->name('profile.show.update');
+    ->name('profile.show.update')
+    ->middleware('throttle:10,10');
 
 Route::put('/profile.summary', [profileController::class, 'updateSummary'])
     ->middleware('auth')
-    ->name('profile.summary.update');
+    ->name('profile.summary.update')
+    ->middleware('throttle:10,10');
 
 Route::put('/profile.profile_picture', [profileController::class, 'updatePfp'])
     ->middleware('auth')
-    ->name('profile.picture.update');
+    ->name('profile.picture.update')
+    ->middleware('throttle:5,10');
 
 Route::put('/profile.birthday', [profileController::class, 'updateBirthday'])
     ->middleware('auth')
-    ->name('profile.birthday.update');
+    ->name('profile.birthday.update')
+    ->middleware('throttle:5,10');
 
     // guestbook
 
 Route::post('/profile/{user}/guestbook', [GuestbookController::class, 'store'])
-    ->middleware('auth')
+    ->middleware(['auth', 'throttle:5,10'])
     ->name('guestbook.store');
 
     // ADMIN
