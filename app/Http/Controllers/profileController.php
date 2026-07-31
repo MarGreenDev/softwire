@@ -41,7 +41,7 @@ class profileController extends Controller
             'profile_picture' => 'image|max:2048',
         ]);
 
-        $pfpPath = $request->file('profile_picture')->store('profile-pictures', 'public');
+        $pfpPath = $request->file('profile_picture')->store('profile-pictures');
 
         auth()->user()->update([
             'profile_picture' => $pfpPath,
