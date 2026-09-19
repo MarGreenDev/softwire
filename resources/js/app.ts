@@ -24,7 +24,7 @@ aboutmeCancel?.addEventListener('click', () => {
 });
 
 // The profile datails edit section
-const summaryBtn= document.querySelector<HTMLElement>("#summaryBtn");
+const summaryBtn = document.querySelector<HTMLElement>("#summaryBtn");
 const summaryCancel = document.querySelector<HTMLElement>("#summaryCancel");
 const profileSummaryEdit = document.querySelector<HTMLElement>("#profileSummaryEdit");
 const profileSummary = document.querySelector<HTMLElement>("#profileSummary");
@@ -113,6 +113,15 @@ guestbookEntriesModal?.addEventListener('click', (e) => {
     }
 });
 
+const chatButton = document.querySelector<HTMLElement>("#chat-button");
+
+chatButton?.addEventListener('click', () => {
+    window.open(
+        '/chat',
+        'SoftWireChat',
+        'width=500,height=700,resizable=yes,scrollbars=yes'
+    );
+});
 
 
 // Datatable
