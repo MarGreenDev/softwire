@@ -67,7 +67,11 @@ Route::get('/search', function () {
     ]);
 });
 
-    // Profile updates
+Route::get('/chat', function () {
+    return view('chat');
+})->middleware('auth');
+
+// Profile updates
 
 Route::put('/profile.about-me', [profileController::class, 'updateAboutMe'])
     ->middleware('auth')
@@ -89,13 +93,13 @@ Route::put('/profile.birthday', [profileController::class, 'updateBirthday'])
     ->name('profile.birthday.update')
     ->middleware('throttle:5,10');
 
-    // guestbook
+// guestbook
 
 Route::post('/profile/{user}/guestbook', [GuestbookController::class, 'store'])
     ->middleware(['auth', 'throttle:5,10'])
     ->name('guestbook.store');
 
-    // ADMIN
+// ADMIN
 
 Route::get('/admin', [DashboardController::class, 'getAllUsers'])
     ->middleware('admin');
