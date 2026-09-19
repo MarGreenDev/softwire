@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Events\MessageSent;
 
 class MessageController extends Controller
 {
     public function index()
     {
         $messages = Message::with('user')
-            ->latest()
             ->get();
 
         return view('chat', compact('messages'));
@@ -22,9 +22,13 @@ class MessageController extends Controller
             'message' => ['required', 'string', 'max:500'],
         ]);
 
-        $request->user()->messages()->create([
-            'message' => $validated['message'],
+        $message = $request->user()->messages()->create([
+            'message' => $validated['message']
         ]);
+
+        $message->load('user');
+
+        broadcast(new MessageSent($message));
 
         return redirect()->route('chat');
     }

@@ -8,13 +8,23 @@
     </h2>
 
     <div class="widget h-full flex-1 overflow-y-auto">
-        <!-- messages will be displayed here -->
+
+
+        @foreach ($messages as $message)
+        <div class="flex gap-2 px-2">
+            <strong>{{ $message->user->name }}:</strong>
+            <p>{{ $message->message }}</p>
+        </div>
+
+        @endforeach
     </div>
 
-    <div class="w-full flex">
-        <textarea class="text-area-primary" name="message" id="chatmessage"></textarea>
-        <button class="btn-primary">Send</button>
-    </div>
+    <form action="{{ route('chat.store') }}" method="POST">
+        <div class="w-full flex">
+            <textarea class="text-area-primary" name="message" id="chatmessage" required></textarea>
+            <button class="btn-primary" type="submit">Send</button>
+        </div>
+    </form>
 
 </div>
 
