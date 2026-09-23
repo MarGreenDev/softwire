@@ -29,15 +29,24 @@ SoftWire Admin
         </thead>
 
         @foreach($users as $user)
-            <tr class="hover:bg-pink-200">
-                <td class="p-2 border-t border-pink-300">{{ $user->id }}</td>
-                <td class="p-2 border-t border-pink-300">{{ $user->name }}</td>
-                <td class="p-2 border-t border-pink-300">{{ $user->email }}</td>
-                <td class="p-2 border-t border-pink-300">{{ $user->created_at }}</td>
-                <td class="p-2 border-t border-pink-300">
-                    <a href="{{ route('profile.admin', $user) }}">View profile</a>
-                </td>
-            </tr>
+        <tr class="hover:bg-pink-200">
+            <td class="p-2 border-t border-pink-300">{{ $user->id }}</td>
+            <td class="p-2 border-t border-pink-300">{{ $user->name }}</td>
+            <td class="p-2 border-t border-pink-300">{{ $user->email }}</td>
+            <td class="p-2 border-t border-pink-300">{{ $user->created_at }}</td>
+            <td class="p-2 border-t border-pink-300">
+                <a href="{{ route('profile.admin', $user) }}">View profile</a>
+
+                <form action="{{ route('remove.user', $user) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="user_id" value="{{ $user->id}}">
+                    <button class="text-red-400 cursor-pointer" type="submit">
+                        Remove user
+                    </button>
+                </form>
+            </td>
+        </tr>
         @endforeach
 
     </table>

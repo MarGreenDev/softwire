@@ -10,9 +10,10 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
 
-    public function show(User $user) {
+    public function show(User $user)
+    {
 
-    $writtenGuestbookEntries = $user->guestbookEntriesWritten;    
+        $writtenGuestbookEntries = $user->guestbookEntriesWritten;
 
         return view('profile.admin-view', [
             'user' => $user,
@@ -20,24 +21,34 @@ class UserController extends Controller
         ]);
     }
 
-    public function removeField(Request $request, User $user) {
+    public function removeField(Request $request, User $user)
+    {
 
-    $allowed = [
-        'about_me',
-        'pronouns',
-        'profile_picture',
-        'status',
-    ];
+        $allowed = [
+            'about_me',
+            'pronouns',
+            'profile_picture',
+            'status',
+        ];
 
-    $field = $request->input('field');
+        $field = $request->input('field');
 
-    if (! in_array($field, $allowed)) {
-        abort(400);
+        if (! in_array($field, $allowed)) {
+            abort(400);
+        }
+
+        $user->$field = null;
+        $user->save();
+
+        return back()->with('success', "Field removed.");
     }
 
-    $user->$field = null;
-    $user->save();
+    public function removeUser(Request $request)
+    {
+        $user = User::findOrFail($request->user_id);
 
-    return back()->with('success', "Field removed.");
+        $user->delete();
+
+        return back()->with('success', 'User removed');
     }
 }
