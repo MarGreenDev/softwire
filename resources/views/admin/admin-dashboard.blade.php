@@ -41,11 +41,11 @@ SoftWire Admin
                     @csrf
                     @method('DELETE')
                     <input type="hidden" name="user_id" value="{{ $user->id}}">
-                    <button class="text-red-400 cursor-pointer" type="submit">
+                    <button class="text-red-500 font-bold underline cursor-pointer" type="submit">
                         Remove user
                     </button>
                 </form>
-                //TODO: Add warning before deleting
+                <!-- //TODO: Add warning before deleting -->
             </td>
         </tr>
         @endforeach
