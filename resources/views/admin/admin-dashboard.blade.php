@@ -45,6 +45,7 @@ SoftWire Admin
                         Remove user
                     </button>
                 </form>
+                //TODO: Add warning before deleting
             </td>
         </tr>
         @endforeach
