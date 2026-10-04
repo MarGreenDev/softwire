@@ -7,7 +7,8 @@
         Chatbox
     </h2>
 
-    <div class="widget h-full flex-1 overflow-y-auto">
+    <div id="messageContainer"
+        class="widget h-full flex-1 overflow-y-auto">
 
 
         @foreach ($messages as $message)
