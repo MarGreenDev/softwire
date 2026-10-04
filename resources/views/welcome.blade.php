@@ -8,7 +8,9 @@
 
         <aside class="col-span-1 md:col-span-3 space-y-3">
 
+            @auth
             <button class="btn-primary" id="chat-button">Chatroom</button>
+            @endauth
 
             @if ($featuredUser)
             @include('partials.widgets.featured-user')
