@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuestbookController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\profileController;
 use App\Models\GuestbookEntry;
 use App\Models\User;
@@ -65,6 +66,16 @@ Route::get('/search', function () {
         'featuredUser' => $featuredUser,
         'newestUser' => $newestUser,
     ]);
+});
+
+//CHATROOM
+Route::middleware('auth')->group(function () {
+    Route::get('/chat', [MessageController::class, 'index'])
+        ->name('chat');
+
+    Route::post('/chat', [MessageController::class, 'store'])
+        ->name('chat.store')
+        ->middleware('throttle:10,1');
 });
 
 // Profile updates
