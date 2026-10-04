@@ -2,6 +2,8 @@ import DataTable from 'datatables.net-dt';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import './popup2';
 import './zodiac';
+import './echo';
+import './chat';
 
 // About me edit logic thing
 const aboutmeBtn = document.querySelector<HTMLElement>("#aboutmeBtn");
@@ -24,7 +26,7 @@ aboutmeCancel?.addEventListener('click', () => {
 });
 
 // The profile datails edit section
-const summaryBtn= document.querySelector<HTMLElement>("#summaryBtn");
+const summaryBtn = document.querySelector<HTMLElement>("#summaryBtn");
 const summaryCancel = document.querySelector<HTMLElement>("#summaryCancel");
 const profileSummaryEdit = document.querySelector<HTMLElement>("#profileSummaryEdit");
 const profileSummary = document.querySelector<HTMLElement>("#profileSummary");
@@ -113,6 +115,15 @@ guestbookEntriesModal?.addEventListener('click', (e) => {
     }
 });
 
+const chatButton = document.querySelector<HTMLElement>("#chat-button");
+
+chatButton?.addEventListener('click', () => {
+    window.open(
+        '/chat',
+        'SoftWireChat',
+        'width=500,height=700,resizable=yes,scrollbars=yes'
+    );
+});
 
 
 // Datatable
