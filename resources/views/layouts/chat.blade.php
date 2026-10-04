@@ -2,11 +2,12 @@
 <html>
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SoftWire Chat</title>
     @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
 
-<body class="min-h-screen flex flex-col bg-cover text-pink-400"
+<body class="h-screen flex flex-col bg-cover text-pink-400"
     style="background-image: url('/images/background.jpg')">
 
     <header class="bg-linear-to-t from-pink-100/70 to-pink-300/70 backdrop-blur-sm p-4 border-2 border-pink-300">
@@ -18,7 +19,7 @@
             </div>
         </div>
     </header>
-    <main class="flex flex-col flex-1">
+    <main class="flex flex-col flex-1 min-h-0">
         @yield('content')
     </main>
 </body>

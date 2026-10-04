@@ -30,6 +30,6 @@ class MessageController extends Controller
 
         broadcast(new MessageSent($message));
 
-        return redirect()->route('chat');
+        // return redirect()->route('chat');
     }
 }

@@ -8,10 +8,6 @@ interface ChatMessage {
     created_at: string;
 }
 
-// interface MessageSentEvent {
-//     message: ChatMessage;
-// }
-
 const messageContainer = document.querySelector<HTMLElement>("#messageContainer");
 
 window.Echo
@@ -24,7 +20,13 @@ window.Echo
         messageContainer?.insertAdjacentHTML(
             'beforeend',
             createMessageHTML(event)
-        )
+        );
+
+        messageContainer?.scrollTo({
+            top: messageContainer.scrollHeight,
+            behavior: 'smooth'
+        });
+        // TODO: add ux feature so that it doesn't force a scroll down when users are reading older messages
     });
 
 function createMessageHTML(message: ChatMessage): string {
@@ -35,3 +37,32 @@ function createMessageHTML(message: ChatMessage): string {
     </div>
     `;
 }
+
+const form = document.querySelector<HTMLFormElement>('#chatForm');
+const input = document.querySelector<HTMLInputElement>('#chatmessage');
+
+form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!input) return;
+
+    const response = await fetch(form.action, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document
+                .querySelector<HTMLMetaElement>('meta[name="csrf-token"]')!
+                .content,
+        },
+        body: JSON.stringify({
+            message: input.value,
+        }),
+    });
+
+    if (response.status === 429) {
+        alert('Stop spamming pls!!! you can message again soon');
+        return;
+    }
+
+    input.value = '';
+});

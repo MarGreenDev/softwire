@@ -74,7 +74,8 @@ Route::middleware('auth')->group(function () {
         ->name('chat');
 
     Route::post('/chat', [MessageController::class, 'store'])
-        ->name('chat.store');
+        ->name('chat.store')
+        ->middleware('throttle:10,1');
 });
 
 // Profile updates
