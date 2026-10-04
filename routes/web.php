@@ -118,3 +118,7 @@ Route::get('profile/admin/{user}', [UserController::class, 'show'])
 Route::patch('/profile/admin/{user}', [UserController::class, 'removeField'])
     ->name('users.removeField')
     ->middleware('admin');
+
+Route::delete('/admin/{user}', [UserController::class, 'removeUser'])
+    ->name('remove.user')
+    ->middleware('admin');
