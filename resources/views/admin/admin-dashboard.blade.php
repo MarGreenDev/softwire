@@ -37,7 +37,8 @@ SoftWire Admin
             <td class="p-2 border-t border-pink-300">
                 <a href="{{ route('profile.admin', $user) }}">View profile</a>
 
-                <form action="{{ route('remove.user', $user) }}" method="POST">
+                <form action="{{ route('remove.user', $user) }}" method="POST"
+                    onsubmit="return confirm('Are you sure you want to permanently delete this user? This action cannot be undone.');">
                     @csrf
                     @method('DELETE')
                     <input type="hidden" name="user_id" value="{{ $user->id}}">
@@ -45,7 +46,6 @@ SoftWire Admin
                         Remove user
                     </button>
                 </form>
-                <!-- //TODO: Add warning before deleting -->
             </td>
         </tr>
         @endforeach
